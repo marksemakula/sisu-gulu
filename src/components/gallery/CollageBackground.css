@@ -1,0 +1,62 @@
+/* CollageBackground.css */
+
+.collage-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.22;
+}
+
+
+.collage-img {
+  width: 22vw;
+  max-width: 320px;
+  min-width: 180px;
+  margin: 1vw;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18);
+  animation: collageFloat 18s ease-in-out infinite alternate;
+  transition: filter 2s, opacity 2s, transform 2s;
+}
+
+.collage-img-background {
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.collage-img-foreground {
+  opacity: 0.95;
+  z-index: 2;
+  transform: scale(1.1) translateY(-10px);
+}
+
+.collage-img-color {
+  filter: none !important;
+  opacity: 1 !important;
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.22);
+}
+
+
+.collage-img:nth-child(2n) {
+  animation-delay: 2s;
+}
+.collage-img:nth-child(3n) {
+  animation-delay: 4s;
+}
+.collage-img:nth-child(4n) {
+  animation-delay: 6s;
+}
+
+@keyframes collageFloat {
+  0% { transform: translateY(0) scale(1) rotate(-2deg); }
+  50% { transform: translateY(-24px) scale(1.04) rotate(2deg); }
+  100% { transform: translateY(0) scale(1) rotate(-2deg); }
+}

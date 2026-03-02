@@ -1,0 +1,58 @@
+/* Additional component-specific styles */
+.hero-gradient {
+  background: linear-gradient(135deg, #0A2342 0%, #1a3a5f 50%, #2A9D8F 100%);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-color: rgba(94, 23, 19, 0.45);
+  background-image: radial-gradient(rgba(0, 0, 0, 0.35) 33%, transparent 33%);
+  background-size: 2px 2px;
+}
+
+.institution-card {
+  background: linear-gradient(145deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.news-ticker {
+  animation: scroll-left 30s linear infinite;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll-continuous 40s linear infinite;
+}
+
+@keyframes scroll-continuous {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.section-divider {
+  background: linear-gradient(90deg, transparent 0%, #C5A572 50%, transparent 100%);
+  height: 1px;
+  width: 100%;
+}
