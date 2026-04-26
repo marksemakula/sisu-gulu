@@ -49,7 +49,7 @@ const Footer = () => {
               viewport={{ once: true }}
             >
               <div className="flex items-center space-x-3 mb-6">
-                <img src="/logo.png" alt="GES Logo" className="h-16 w-auto" />
+                <img src="/GombeEducationServicesLogo.jpg" alt="GES Logo" className="h-16 w-auto" />
                 <div>
                   <h3 className="text-xl font-bold text-gray-900">Gombe Education Service</h3>
                   <p className="text-ges-gold text-sm font-semibold">EXCELLENCE SINCE 1995</p>
@@ -193,7 +193,7 @@ const Footer = () => {
                 <div className="flex items-center gap-2">
                   <span className="text-gray-600 text-sm">Powered by</span>
                   <img 
-                    src="/images/Inzozi-grayscale1.png" 
+                    src="/Inzozi-grayscale1.png" 
                     alt="Inzozi Logo" 
                     className="h-16 w-auto" 
                   />

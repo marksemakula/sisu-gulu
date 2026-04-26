@@ -36,6 +36,7 @@
 <link rel="stylesheet" href="assets/vendors/bootstrap-select/bootstrap-select.min.css" />
 <link rel="stylesheet" href="assets/vendors/animate/animate.min.css" />
 <link rel="stylesheet" href="assets/vendors/fontawesome/css/all.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 <link rel="stylesheet" href="assets/vendors/jquery-ui/jquery-ui.css" />
 <link rel="stylesheet" href="assets/vendors/jarallax/jarallax.css" />
 <link rel="stylesheet" href="assets/vendors/jquery-magnific-popup/jquery.magnific-popup.css" />
@@ -116,6 +117,8 @@ body.custom-cursor {
 
 .main-menu__list > li > a {
 	color: #ffffff !important;
+  font-family: "Schoolbell", cursive !important;
+  font-size: 32px !important;
   font-weight: 600;
   padding: 0;
 }
@@ -129,13 +132,23 @@ body.custom-cursor {
   background-color: #f4f7fb;
 }
 
+.service-one__item__title {
+  font-family: "Schoolbell", cursive !important;
+}
+
+.footer-widget__social a {
+  background-color: transparent !important;
+  -webkit-mask: none !important;
+  mask: none !important;
+}
+
 .landing-hero {
   position: relative;
   min-height: 700px;
   display: flex;
   align-items: center;
   padding: 160px 5vw 140px;
-	background: linear-gradient(var(--hero-overlay), var(--hero-overlay)), url('/heather-suggitt-AjB5qK2rnbU-unsplash.jpg') center/cover no-repeat;
+	background: linear-gradient(var(--hero-overlay), var(--hero-overlay)), url('/katale/SCOOBY EDITED.JPG') center/cover no-repeat;
   overflow: visible;
 }
 
@@ -364,18 +377,79 @@ body.custom-cursor {
       <div class="col-lg-6">
         <div class="landing-hero__content">
           <h1 class="landing-hero__title" style="font-family: 'Cinzel', serif; font-weight: 400; color: white; width: 100%; max-width: 100%;">Scooby Doo International School Uganda</h1>
-          <p class="landing-hero__subtitle" style="font-family: 'Ubuntu', sans-serif;">Active Learning, Expert Teachers & Safe Environment</p>
+          <p class="landing-hero__subtitle" style="font-family: 'Schoolbell', cursive;">Active Learning, Expert Teachers & Safe Environment</p>
           <a href="contact.html" class="landing-hero__cta" style="font-family: 'Ubuntu', sans-serif;">Admissions</a>
         </div>
       </div>
       <div class="col-lg-6">
         <div class="landing-hero__visual">
-          <div class="landing-hero__campus-name">KATALE<br>Campus</div>
+          <div class="landing-hero__campus-name">GULU<br>Campus</div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- Partners / Affiliates Ticker -->
+<section class="logo-ticker" style="background:#fff; padding: 18px 0; overflow:hidden; border-top: 1px solid #eee;">
+  <style>
+    .logo-ticker__track {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      width: max-content;
+      will-change: transform;
+      animation: ticker-scroll 36s linear infinite;
+    }
+    .logo-ticker__track:hover { animation-play-state: paused; }
+    .logo-ticker__track img {
+      height: 56px;
+      width: auto;
+      filter: grayscale(100%);
+      opacity: 0.65;
+      transition: filter 0.3s, opacity 0.3s;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .logo-ticker__track img:hover { filter: grayscale(0%); opacity: 1; }
+    @keyframes ticker-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-33.333%); }
+    }
+  </style>
+  <div style="overflow:hidden; width:100%;">
+    <div class="logo-ticker__track">
+      <!-- set 1 -->
+      <img src="/GES.png" alt="GES">
+      <img src="/Gombe High logo.png" alt="Gombe High School">
+      <img src="/Gombe Junior School logo.png" alt="Gombe Junior School">
+      <img src="/IEPP.png" alt="IEPP">
+      <img src="/KISU.png" alt="KISU">
+      <img src="/MoES1.png" alt="Ministry of Education">
+      <img src="/Jimmy Ssekasi Business Institute Logo.png" alt="Jimmy Ssekasi Business Institute">
+      <img src="/Flag_of_Buganda.svg" alt="Buganda">
+      <!-- set 2 -->
+      <img src="/GES.png" alt="GES">
+      <img src="/Gombe High logo.png" alt="Gombe High School">
+      <img src="/Gombe Junior School logo.png" alt="Gombe Junior School">
+      <img src="/IEPP.png" alt="IEPP">
+      <img src="/KISU.png" alt="KISU">
+      <img src="/MoES1.png" alt="Ministry of Education">
+      <img src="/Jimmy Ssekasi Business Institute Logo.png" alt="Jimmy Ssekasi Business Institute">
+      <img src="/Flag_of_Buganda.svg" alt="Buganda">
+      <!-- set 3 -->
+      <img src="/GES.png" alt="GES">
+      <img src="/Gombe High logo.png" alt="Gombe High School">
+      <img src="/Gombe Junior School logo.png" alt="Gombe Junior School">
+      <img src="/IEPP.png" alt="IEPP">
+      <img src="/KISU.png" alt="KISU">
+      <img src="/MoES1.png" alt="Ministry of Education">
+      <img src="/Jimmy Ssekasi Business Institute Logo.png" alt="Jimmy Ssekasi Business Institute">
+      <img src="/Flag_of_Buganda.svg" alt="Buganda">
+    </div>
+  </div>
+</section>
+
 <section class="service-one">
 	<div class="service-one__bg sisu-splax" data-para-options='{
 		"orientation": "up",
@@ -397,7 +471,7 @@ body.custom-cursor {
 				<div class="service-one__item" style="--accent-color: #6e1d0f;">
 					<div class="service-one__item__image-wrapper">
 						<div class="service-one__item__image sisu-tilt" data-tilt-options='{ "glare": false, "maxGlare": 0, "maxTilt": 7, "speed": 700, "scale": 1 }'>
-							<img src="/annie-spratt-V-XM4kkWpng-unsplash.jpg" alt="sisu"/>
+							<img src="/katale/26-08-2015-01-01-46_IMG_1441.jpg" alt="sisu"/>
 						</div>
 						<div class="service-one__item__ball"></div>
 					</div>
@@ -408,7 +482,7 @@ body.custom-cursor {
 				<div class="service-one__item service-one__item--order" style="--accent-color: #6e1d0f;">
 					<div class="service-one__item__image-wrapper">
 						<div class="service-one__item__image sisu-tilt" data-tilt-options='{ "glare": false, "maxGlare": 0, "maxTilt": 7, "speed": 700, "scale": 1 }'>
-							<img src="/bright-kwabena-kyere-rxB0L6nrP5M-unsplash.jpg" alt="sisu"/>
+							<img src="/katale/26-08-2015-01-03-29_IMG_3691.jpg" alt="sisu"/>
 						</div>
 						<div class="service-one__item__ball"></div>
 					</div>
@@ -419,7 +493,7 @@ body.custom-cursor {
 				<div class="service-one__item" style="--accent-color: #6e1d0f;">
 					<div class="service-one__item__image-wrapper">
 						<div class="service-one__item__image sisu-tilt" data-tilt-options='{ "glare": false, "maxGlare": 0, "maxTilt": 7, "speed": 700, "scale": 1 }'>
-							<img src="/heather-suggitt-AjB5qK2rnbU-unsplash.jpg" alt="sisu"/>
+							<img src="/katale/26-08-2015-12-49-54__MG_8635.jpg" alt="sisu"/>
 						</div>
 						<div class="service-one__item__ball"></div>
 					</div>
@@ -430,7 +504,7 @@ body.custom-cursor {
 				<div class="service-one__item service-one__item--order" style="--accent-color: #6e1d0f;">
 					<div class="service-one__item__image-wrapper">
 						<div class="service-one__item__image sisu-tilt" data-tilt-options='{ "glare": false, "maxGlare": 0, "maxTilt": 7, "speed": 700, "scale": 1 }'>
-							<img src="/megan-escobosa-photography-_FMi4LTEe6g-unsplash.jpg" alt="sisu"/>
+							<img src="/katale/26-08-2015-12-53-17__MG_8683.jpg" alt="sisu"/>
 						</div>
 						<div class="service-one__item__ball"></div>
 					</div>
@@ -451,7 +525,7 @@ body.custom-cursor {
 	
 	<h3 class="sec-title__title">Our passion is childhood,<br> and we’re in kindergarten</h3><!-- /.sec-title__title -->
 </div><!-- /.sec-title -->
-					<p class="about-one__content__text" style="font-family: 'Ubuntu', sans-serif;">
+					<p class="about-one__content__text" style="font-family: 'Schoolbell', cursive;">
 						This is an early years independent international
 						school offering both National & International
 						curricular and brings together learners from
@@ -466,7 +540,7 @@ body.custom-cursor {
 			<div class="col-lg-6">
 				<div class="about-one__image">
 					<div class="about-one__image__one sisu-tilt" data-tilt-options='{ "glare": false, "maxGlare": 0, "maxTilt": 5, "speed": 700, "scale": 1 }'>
-						<img src="/raissa-lara-lutolf-fasel-ivKWcUFJQtE-unsplash.jpg" alt="sisu"/>
+						<img src="/katale/26-08-2015-12-54-03__MG_9650.jpg" alt="sisu"/>
 					</div>
 					<div class="about-one__image__border wow fadeInUp" data-wow-delay="200ms">
 						<img src="assets/images/shapes/about-1-border.jpg" alt="sisu"/>
@@ -615,43 +689,43 @@ body {
 				}'>
 				<div class="item">
 					<div class="testimonial-one__item">
-						<div class="testimonial-one__item__quote" style="font-family: 'Ubuntu', sans-serif;">
+						<div class="testimonial-one__item__quote" style="font-family: 'Schoolbell', cursive;">
 							<strong>MOTTO:</strong> "How do they do it?"
 						</div>
 						<div class="testimonial-one__item__author">
 							<img src="/scoobydoo-logo.png" alt="sisu"/>
 							<h5 class="testimonial-one__item__author__name">SISU</h5>
-							<p class="testimonial-one__item__author__designation">Katale</p>
+							<p class="testimonial-one__item__author__designation">Gulu</p>
 						</div>
 					</div>
 				</div>
 				<div class="item">
 					<div class="testimonial-one__item">
-						<div class="testimonial-one__item__quote" style="font-family: 'Ubuntu', sans-serif;">
+						<div class="testimonial-one__item__quote" style="font-family: 'Schoolbell', cursive;">
 							<strong>VISION:</strong> "At the helm of producing competent, responsible, self-reliant and flexible citizens"
 						</div>
 						<div class="testimonial-one__item__author">
 							<img src="/scoobydoo-logo.png" alt="sisu"/>
 							<h5 class="testimonial-one__item__author__name">SISU</h5>
-							<p class="testimonial-one__item__author__designation">Katale</p>
+							<p class="testimonial-one__item__author__designation">Gulu</p>
 						</div>
 					</div>
 				</div>
 				<div class="item">
 					<div class="testimonial-one__item">
-						<div class="testimonial-one__item__quote" style="font-family: 'Ubuntu', sans-serif;">
+						<div class="testimonial-one__item__quote" style="font-family: 'Schoolbell', cursive;">
 							<strong>MISSION:</strong> "To provide quality holistic education that fosters creativity, critical thinking and collaboration to produce competent global citizens"
 						</div>
 						<div class="testimonial-one__item__author">
 							<img src="/scoobydoo-logo.png" alt="sisu"/>
 							<h5 class="testimonial-one__item__author__name">SISU</h5>
-							<p class="testimonial-one__item__author__designation">Katale</p>
+							<p class="testimonial-one__item__author__designation">Gulu</p>
 						</div>
 					</div>
 				</div>
 				<div class="item">
 					<div class="testimonial-one__item">
-						<div class="testimonial-one__item__quote" style="font-family: 'Ubuntu', sans-serif;">
+						<div class="testimonial-one__item__quote" style="font-family: 'Schoolbell', cursive;">
 							<strong>CORE VALUES:</strong><br>
 							• God Fearing<br>
 							• Respect<br>
@@ -662,7 +736,7 @@ body {
 						<div class="testimonial-one__item__author">
 							<img src="/scoobydoo-logo.png" alt="sisu"/>
 							<h5 class="testimonial-one__item__author__name">SISU</h5>
-							<p class="testimonial-one__item__author__designation">Katale</p>
+							<p class="testimonial-one__item__author__designation">Gulu</p>
 						</div>
 					</div>
 				</div>
@@ -707,7 +781,7 @@ body {
 			<div class="col-lg-7">
 				<div class="video-one__btn-shape">
 					<div class="video-one__btn">
-						<img src="/heather-suggitt-AjB5qK2rnbU-unsplash.jpg" alt="sisu"/>
+						<img src="/katale/26-08-2015-12-49-54__MG_8635.jpg" alt="sisu"/>
 						<a href="https://www.youtube.com/watch?v=0MuL8fd3pb8" class="video-popup">
 							<i class="fa fa-play"></i>
 						</a>
@@ -745,7 +819,7 @@ body {
     </div>
     <div class="program-one__item__bg"></div>
     <div class="program-one__item__image">
-        <img src="/happgirl.jpg" alt="Toddler">
+        <img src="/katale/26-08-2015-12-55-02_1.jpg" alt="Toddler">
     </div><!-- /.program-one__item__image -->
     <div class="program-one__item__content">
         <h3 class="program-one__item__title"><a href="programs-d-toddler.html">Toddler</a></h3><!-- /.program-one__item__title -->
@@ -767,7 +841,7 @@ body {
     </div>
     <div class="program-one__item__bg"></div>
     <div class="program-one__item__image">
-        <img src="/classexam.jpg" alt="Preschool">
+        <img src="/katale/15-09-2015-12-03-57_DSCN1414.jpg" alt="Preschool">
     </div><!-- /.program-one__item__image -->
     <div class="program-one__item__content">
         <h3 class="program-one__item__title"><a href="programs-d-preschool.html">Preschool</a></h3><!-- /.program-one__item__title -->
@@ -789,7 +863,7 @@ body {
     </div>
     <div class="program-one__item__bg"></div>
     <div class="program-one__item__image">
-        <img src="/schoolgroup.jpg" alt="Kindergarten">
+        <img src="/katale/26-08-2015-01-12-29_IMG_3773.jpg" alt="Kindergarten">
     </div><!-- /.program-one__item__image -->
     <div class="program-one__item__content">
         <h3 class="program-one__item__title"><a href="programs-d-kindergarten.html">Kindergarten</a></h3><!-- /.program-one__item__title -->
@@ -811,7 +885,7 @@ body {
     </div>
     <div class="program-one__item__bg"></div>
     <div class="program-one__item__image">
-        <img src="/topsphere-media-ojBd8yB5KDM-unsplash.jpg" alt="Flex-care">
+        <img src="/katale/26-08-2015-12-53-17__MG_8683.jpg" alt="Flex-care">
     </div><!-- /.program-one__item__image -->
     <div class="program-one__item__content">
         <h3 class="program-one__item__title"><a href="programs-d-flex-care.html">Flex-care</a></h3><!-- /.program-one__item__title -->
@@ -879,7 +953,7 @@ body {
 		</svg>
 	</div><!-- /.middle__shape -->
 	<div class="team-card__image sisu-tilt" data-tilt-options='{ "glare": false, "maxGlare": 0, "maxTilt": 5, "speed": 700, "scale": 1 }'>
-		<img src="/images.jpeg" alt="Jane cooper">
+		<img src="/katale/26-08-2015-12-54-03__MG_9650.jpg" alt="Jane cooper">
 	</div><!-- /.team-card__image -->
 	<div class="team-card__content">
 		<h3 class="team-card__title">
@@ -925,7 +999,7 @@ body {
 		</svg>
 	</div><!-- /.middle__shape -->
 	<div class="team-card__image sisu-tilt" data-tilt-options='{ "glare": false, "maxGlare": 0, "maxTilt": 5, "speed": 700, "scale": 1 }'>
-		<img src="/73e7f5be-efe4-4779-a0dd-ec96e761e11c.jpg" alt="Cody fisher">
+		<img src="/katale/26-08-2015-12-55-02_1.jpg" alt="Cody fisher">
 	</div><!-- /.team-card__image -->
 	<div class="team-card__content">
 		<h3 class="team-card__title">
@@ -1093,7 +1167,7 @@ body {
 				<div class="blog-card-three wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='00ms' style='--accent-color: #F25334;'>
     <div class="blog-card-three__bg"></div>
     <div class="blog-card-three__image">
-        <img src="/annie-spratt-V-XM4kkWpng-unsplash.jpg" alt="10 easy steps to more learn about play">
+        <img src="/katale/26-08-2015-01-01-46_IMG_1441.jpg" alt="10 easy steps to more learn about play">
         <div class="blog-card-three__image__layer-wrapper">
             <div class="blog-card-three__image__layer" style="background-image: url(/premium_photo-1661861141158-be08023174e6.avif);"></div>
             <div class="blog-card-three__image__layer" style="background-image: url(/premium_photo-1666956837879-fafe054d850c.avif);"></div>
@@ -1126,7 +1200,7 @@ body {
 				<div class="blog-card-three wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms' style='--accent-color: #2390FF;'>
     <div class="blog-card-three__bg"></div>
     <div class="blog-card-three__image">
-        <img src="/bright-kwabena-kyere-rxB0L6nrP5M-unsplash.jpg" alt="The complete kindearn design guideline 2023">
+        <img src="/katale/26-08-2015-01-03-29_IMG_3691.jpg" alt="The complete kindearn design guideline 2023">
         <div class="blog-card-three__image__layer-wrapper">
             <div class="blog-card-three__image__layer" style="background-image: url(/premium_photo-1722384028426-6ca4e892d7ab.avif);"></div>
             <div class="blog-card-three__image__layer" style="background-image: url(/premium_photo-1723050053847-2aaf8ad2c74c.avif);"></div>
@@ -1159,7 +1233,7 @@ body {
 				<div class="blog-card-three wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='200ms' style='--accent-color: #75C137;'>
     <div class="blog-card-three__bg"></div>
     <div class="blog-card-three__image">
-        <img src="/heather-suggitt-AjB5qK2rnbU-unsplash.jpg" alt="Choose the best child care center for you!">
+        <img src="/katale/26-08-2015-12-49-54__MG_8635.jpg" alt="Choose the best child care center for you!">
         <div class="blog-card-three__image__layer-wrapper">
             <div class="blog-card-three__image__layer" style="background-image: url(/premium_photo-1724026586579-5c413598de2c.avif);"></div>
             <div class="blog-card-three__image__layer" style="background-image: url(/premium_photo-1661861141158-be08023174e6.avif);"></div>
@@ -1212,28 +1286,54 @@ body {
 								<a href="#">Katale, Uganda</a></li>
 							<li>
 								<i class="icon-call footer-widget__info__icon"></i>
-								<a href="tel:3035550105">+256 700 000 005</a></li>
+								<a href="tel:+256414694516">Tel: +256-414 694 516</a></li>
+							<li>
+								<i class="icon-call footer-widget__info__icon"></i>
+								<a href="tel:+256708800005">Mob: +256-708 800 005</a></li>
+							<li>
+								<i class="icon-call footer-widget__info__icon"></i>
+								<a href="tel:+256708800006">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+256-708 800 006</a></li>
 							<li>
 								<i class="icon-email1 footer-widget__info__icon"></i>
-								<a href="mailto:info@gjs-kikajjo.ges.ac.ug">info@gjs-kikajjo.ges.ac.ug</a></li>
+								<a href="mailto:info@scoobydoodaycare.com">info@scoobydoodaycare.com</a></li>
 						</ul><!-- /.list-unstyled -->
-						<div class="footer-widget__social">
-							<a href="https://twitter.com/">
-	<i class="fab fa-twitter" aria-hidden="true"></i>
-	<span class="sr-only">Twitter</span>
-</a>
-<a href="https://facebook.com/">
-	<i class="fab fa-facebook" aria-hidden="true"></i>
-	<span class="sr-only">Facebook</span>
-</a>
-<a href="https://pinterest.com/">
-	<i class="fab fa-pinterest-p" aria-hidden="true"></i>
-	<span class="sr-only">Pinterest</span>
-</a>
-<a href="https://instagram.com/">
-	<i class="fab fa-instagram" aria-hidden="true"></i>
-	<span class="sr-only">Instagram</span>
-</a>
+						<div class="footer-widget__social" style="flex-wrap: nowrap; overflow-x: auto;">
+							<a href="https://linkedin.com/" title="LinkedIn" style="width:40px;height:41px;font-size:17px;">
+								<i class="fab fa-linkedin" aria-hidden="true"></i>
+								<span class="sr-only">LinkedIn</span>
+							</a>
+							<a href="https://twitter.com/" title="X" style="width:40px;height:41px;font-size:17px;">
+								<i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+								<span class="sr-only">X</span>
+							</a>
+							<a href="https://youtube.com/" title="YouTube" style="width:40px;height:41px;font-size:17px;">
+								<i class="fab fa-youtube" aria-hidden="true"></i>
+								<span class="sr-only">YouTube</span>
+							</a>
+							<a href="https://snapchat.com/" title="Snapchat" style="width:40px;height:41px;font-size:17px;">
+								<i class="fab fa-snapchat" aria-hidden="true"></i>
+								<span class="sr-only">Snapchat</span>
+							</a>
+							<a href="https://tiktok.com/" title="TikTok" style="width:40px;height:41px;font-size:17px;">
+								<i class="fab fa-tiktok" aria-hidden="true"></i>
+								<span class="sr-only">TikTok</span>
+							</a>
+							<a href="https://facebook.com/" title="Facebook" style="width:40px;height:41px;font-size:17px;">
+								<i class="fab fa-facebook" aria-hidden="true"></i>
+								<span class="sr-only">Facebook</span>
+							</a>
+							<a href="https://discord.com/" title="Discord" style="width:40px;height:41px;font-size:17px;">
+								<i class="fab fa-discord" aria-hidden="true"></i>
+								<span class="sr-only">Discord</span>
+							</a>
+							<a href="https://slack.com/" title="Slack" style="width:40px;height:41px;font-size:17px;">
+								<i class="fab fa-slack" aria-hidden="true"></i>
+								<span class="sr-only">Slack</span>
+							</a>
+							<a href="https://telegram.org/" title="Telegram" style="width:40px;height:41px;font-size:17px;">
+								<i class="fab fa-telegram" aria-hidden="true"></i>
+								<span class="sr-only">Telegram</span>
+							</a>
 						</div><!-- /.footer-widget__social -->
 					</div><!-- /.footer-widget -->
 				</div><!-- /.col-md-6 -->
@@ -1265,33 +1365,33 @@ body {
 						<h2 class="footer-widget__title">Gallery</h2><!-- /.footer-widget__title -->
 						<ul class="list-unstyled footer-widget__gallery">
 							<li>
-								<a class="img-popup" href="/annie-spratt-V-XM4kkWpng-unsplash.jpg">
-									<img src="/annie-spratt-V-XM4kkWpng-unsplash.jpg" alt="footer gallery">
+								<a class="img-popup" href="/katale/26-08-2015-01-01-46_IMG_1441.jpg">
+									<img src="/katale/26-08-2015-01-01-46_IMG_1441.jpg" alt="footer gallery">
 								</a>
 							</li>
 							<li>
-								<a class="img-popup" href="/bright-kwabena-kyere-rxB0L6nrP5M-unsplash.jpg">
-									<img src="/bright-kwabena-kyere-rxB0L6nrP5M-unsplash.jpg" alt="footer gallery">
+								<a class="img-popup" href="/katale/26-08-2015-01-03-29_IMG_3691.jpg">
+									<img src="/katale/26-08-2015-01-03-29_IMG_3691.jpg" alt="footer gallery">
 								</a>
 							</li>
 							<li>
-								<a class="img-popup" href="/heather-suggitt-AjB5qK2rnbU-unsplash.jpg">
-									<img src="/heather-suggitt-AjB5qK2rnbU-unsplash.jpg" alt="footer gallery">
+								<a class="img-popup" href="/katale/26-08-2015-12-49-54__MG_8635.jpg">
+									<img src="/katale/26-08-2015-12-49-54__MG_8635.jpg" alt="footer gallery">
 								</a>
 							</li>
 							<li>
-								<a class="img-popup" href="/megan-escobosa-photography-_FMi4LTEe6g-unsplash.jpg">
-									<img src="/megan-escobosa-photography-_FMi4LTEe6g-unsplash.jpg" alt="footer gallery">
+								<a class="img-popup" href="/katale/26-08-2015-12-53-17__MG_8683.jpg">
+									<img src="/katale/26-08-2015-12-53-17__MG_8683.jpg" alt="footer gallery">
 								</a>
 							</li>
 							<li>
-								<a class="img-popup" href="/raissa-lara-lutolf-fasel-ivKWcUFJQtE-unsplash.jpg">
-									<img src="/raissa-lara-lutolf-fasel-ivKWcUFJQtE-unsplash.jpg" alt="footer gallery">
+								<a class="img-popup" href="/katale/26-08-2015-12-54-03__MG_9650.jpg">
+									<img src="/katale/26-08-2015-12-54-03__MG_9650.jpg" alt="footer gallery">
 								</a>
 							</li>
 							<li>
-								<a class="img-popup" href="/heather-suggitt-AjB5qK2rnbU-unsplash.jpg">
-									<img src="/heather-suggitt-AjB5qK2rnbU-unsplash.jpg" alt="footer gallery">
+								<a class="img-popup" href="/katale/26-08-2015-12-49-54__MG_8635.jpg">
+									<img src="/katale/26-08-2015-12-49-54__MG_8635.jpg" alt="footer gallery">
 								</a>
 							</li>
 						</ul><!-- /.list-unstyled footer-widget__gallery -->
