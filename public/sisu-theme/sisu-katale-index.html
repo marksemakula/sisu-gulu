@@ -1096,13 +1096,14 @@ body {
             <div class="mail-one__bg" style="background-color: #2D9E3D !important;">
             </div>
             <div class="mail-one__content">
-                <h3 class="mail-one__title">Subscribe to our newsletter<br> for daily updates</h3>
-                <form action="#" data-url="MAILCHIMP_FORM_URL" class="mail-one__form mc-form">
-                    <input type="text" name="EMAIL" placeholder="Email Address" style="font-family: 'Ubuntu', sans-serif;">
-                    <button type="submit" class="sisu-btn" style="background-color: #FFD700 !important; font-family: 'Ubuntu', sans-serif;">
-                        <span>Subscribe</span>
+                <h3 class="mail-one__title">Sign Up a Learner<br> at SISU Gulu</h3>
+                <form action="#" class="mail-one__form mc-form" onsubmit="(function(f){var n=f.querySelector('[name=LEARNER_NAME]').value.trim(),e=f.querySelector('[name=PARENT_EMAIL]').value.trim();if(!n||!e){return false;}var msg='Hello SISU Gulu, I would like to sign up my child.%0AName: '+encodeURIComponent(n)+'%0AParent Email: '+encodeURIComponent(e);window.open('https://wa.me/256708800006?text='+msg,'_blank');return false;})(this); return false;">
+                    <input type="text" name="LEARNER_NAME" placeholder="Learner's Full Name" required style="font-family: 'Ubuntu', sans-serif; flex: 1 1 0; min-width: 0; border: none; border-bottom: 2px solid rgba(255,255,255,0.6); background: rgba(255,255,255,0.15); color: #fff; padding: 10px 14px; border-radius: 6px; outline: none; transition: border-color .2s;">
+                    <input type="email" name="PARENT_EMAIL" placeholder="Parent's Email" required style="font-family: 'Ubuntu', sans-serif; flex: 1 1 0; min-width: 0; border: none; border-bottom: 2px solid rgba(255,255,255,0.6); background: rgba(255,255,255,0.15); color: #fff; padding: 10px 14px; border-radius: 6px; outline: none; transition: border-color .2s;">
+                    <button type="submit" title="Send via WhatsApp" style="background-color: #25D366 !important; border: none; border-radius: 50%; width: 48px; height: 48px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.25); transition: background .2s, transform .15s;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="26" height="26" fill="#fff"><path d="M16 2C8.28 2 2 8.28 2 16c0 2.46.67 4.9 1.94 7.04L2 30l7.18-1.88A13.94 13.94 0 0016 30c7.72 0 14-6.28 14-14S23.72 2 16 2zm0 25.5a11.45 11.45 0 01-5.84-1.6l-.42-.25-4.26 1.12 1.13-4.14-.28-.44A11.5 11.5 0 1116 27.5zm6.32-8.6c-.35-.17-2.06-1.02-2.38-1.13-.32-.12-.56-.17-.8.17-.24.35-.9 1.13-1.1 1.37-.2.23-.4.26-.75.09-.35-.17-1.48-.55-2.82-1.75-1.04-.93-1.74-2.08-1.95-2.43-.2-.35-.02-.54.15-.71.16-.16.35-.4.52-.6.17-.2.23-.35.35-.58.12-.23.06-.44-.03-.61-.09-.17-.8-1.93-1.1-2.64-.28-.68-.58-.59-.8-.6h-.68c-.23 0-.61.09-.93.44-.32.35-1.22 1.19-1.22 2.9s1.25 3.37 1.42 3.6c.17.23 2.45 3.74 5.94 5.25.83.36 1.48.57 1.98.73.83.26 1.59.23 2.19.14.67-.1 2.06-.84 2.35-1.66.29-.82.29-1.52.2-1.66-.08-.14-.32-.23-.67-.4z"/></svg>
                     </button>
-                </form><!-- /. mc-form -->
+                </form>
                 <div class="mc-form__response"></div><!-- /.mc-form__response -->
             </div>
             <div class="mail-one__shape sisu-splax" data-para-options='{
