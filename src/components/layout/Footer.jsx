@@ -173,24 +173,10 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <div className="flex flex-col space-y-4">
-              {/* Copyright + Powered by on the same line */}
-              <div className="flex flex-wrap items-center justify-between gap-4">
-                <p className="text-gray-600 text-sm whitespace-nowrap">
-                  &copy; Copyright 2026 Scoobydoo International School Uganda (SISU).
-                </p>
-                <div className="flex items-center gap-2">
-                  <span className="text-gray-600 text-sm">Powered by</span>
-                  <img 
-                    src="/Inzozi-grayscale1.png" 
-                    alt="Inzozi Logo" 
-                    className="h-16 w-auto" 
-                  />
-                </div>
-              </div>
-              {/* Links + Back to Top */}
-              <div className="flex flex-wrap items-center justify-between gap-4">
-                <div className="flex space-x-4 text-gray-600 text-sm">
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+              <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6 text-gray-600 text-sm">
+                <p>&copy; 2026 Gombe Education Service. All rights reserved.</p>
+                <div className="flex space-x-4">
                   <Link to="/privacy" className="hover:text-ges-gold transition-colors">
                     Privacy Policy
                   </Link>
@@ -201,6 +187,18 @@ const Footer = () => {
                     Cookie Policy
                   </Link>
                 </div>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2">
+                  <span className="text-gray-600 text-sm">Powered by</span>
+                  <img 
+                    src="/Inzozi-grayscale1.png" 
+                    alt="Inzozi Logo" 
+                    className="h-16 w-auto" 
+                  />
+                </div>
+
                 {/* Back to Top */}
                 <motion.button
                   onClick={scrollToTop}

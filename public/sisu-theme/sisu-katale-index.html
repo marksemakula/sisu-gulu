@@ -329,9 +329,117 @@ body.custom-cursor {
   50% { opacity: 0.6; }
 }
 </style>
+
+<style>
+/* ============================================================
+   Fill all masked image cut-outs & balance tiles
+   ============================================================ */
+
+/* "Our Programs" tiles — uniform cut-out size regardless of
+   photo orientation (Toddlers photo is portrait) */
+.program-one__item__image {
+  aspect-ratio: 217 / 136; /* matches the blob mask viewBox */
+}
+.program-one__item__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Equal-height program tiles */
+.program-one .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.program-one .row > [class*="col-"] {
+  display: flex;
+}
+.program-one__item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* S-I-S-U letter cut-outs (service section) — photos fully fill
+   each letter and all four tiles stay the same height */
+.service-one__item__image {
+  aspect-ratio: 1 / 1;
+}
+.service-one__item__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Teacher cards — uniform cut-out fill */
+.team-card__image {
+  aspect-ratio: 300 / 323; /* matches the blob mask viewBox */
+}
+.team-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* About section photo cut-out */
+.about-one__image__one {
+  aspect-ratio: 300 / 302; /* matches the blob mask viewBox */
+  display: block;
+}
+.about-one__image__one img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Blog card photo cut-outs */
+.blog-card-three__image {
+  aspect-ratio: 291 / 189; /* matches the blob mask viewBox */
+}
+.blog-card-three__image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Hover reveal strips compose one full photo across the 4 layers */
+.blog-card-three__image__layer {
+  background-size: 400% 100%;
+  background-repeat: no-repeat;
+}
+
+/* Author avatars — fill the 44px circle */
+.blog-card-three__author__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Video tour thumbnail — fill its frame */
+.video-one__btn img {
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+</style>
 </head>
 
 <body class="custom-cursor">
+
+  <!-- SVG Masks for Letters S, I, U -->
+  <svg width="0" height="0" style="position: absolute; width: 0; height: 0; overflow: hidden;" aria-hidden="true">
+    <defs>
+      <mask id="mask-S" maskContentUnits="objectBoundingBox">
+        <rect width="1" height="1" fill="black" />
+        <text x="0.5" y="0.92" font-size="1.25" font-weight="900" fill="white" stroke="white" stroke-width="0.05" stroke-linejoin="round" font-family="'Fredoka', 'Arial Black', 'Schoolbell', sans-serif" text-anchor="middle">S</text>
+      </mask>
+      <mask id="mask-I" maskContentUnits="objectBoundingBox">
+        <rect width="1" height="1" fill="black" />
+        <text x="0.5" y="0.92" font-size="1.25" font-weight="900" fill="white" stroke="white" stroke-width="0.05" stroke-linejoin="round" font-family="'Fredoka', 'Arial Black', 'Schoolbell', sans-serif" text-anchor="middle">I</text>
+      </mask>
+      <mask id="mask-U" maskContentUnits="objectBoundingBox">
+        <rect width="1" height="1" fill="black" />
+        <text x="0.5" y="0.92" font-size="1.25" font-weight="900" fill="white" stroke="white" stroke-width="0.05" stroke-linejoin="round" font-family="'Fredoka', 'Arial Black', 'Schoolbell', sans-serif" text-anchor="middle">U</text>
+      </mask>
+    </defs>
+  </svg>
 
   <div class="custom-cursor__cursor"></div>
   <div class="custom-cursor__cursor-two"></div>
@@ -392,7 +500,7 @@ body.custom-cursor {
       </div>
       <div class="col-lg-6">
         <div class="landing-hero__visual">
-          <div class="landing-hero__campus-name">GULU<br>Campus</div>
+          <div class="landing-hero__campus-name">Kampala<br>Campus</div>
         </div>
       </div>
     </div>
@@ -479,7 +587,7 @@ body.custom-cursor {
 			<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="100ms">
 				<div class="service-one__item" style="--accent-color: #6e1d0f;">
 					<div class="service-one__item__image-wrapper">
-						<div class="service-one__item__image sisu-tilt" data-tilt-options='{ "glare": false, "maxGlare": 0, "maxTilt": 7, "speed": 700, "scale": 1 }'>
+						<div class="service-one__item__image sisu-tilt" data-tilt-options='{ "glare": false, "maxGlare": 0, "maxTilt": 7, "speed": 700, "scale": 1 }' style="-webkit-mask-image: url(#mask-S); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: url(#mask-S); mask-size: contain; mask-repeat: no-repeat; mask-position: center;">
 							<img src="/katale/26-08-2015-01-01-46_IMG_1441.jpg" alt="sisu"/>
 						</div>
 						<div class="service-one__item__ball"></div>
@@ -490,7 +598,7 @@ body.custom-cursor {
 			<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="200ms">
 				<div class="service-one__item service-one__item--order" style="--accent-color: #6e1d0f;">
 					<div class="service-one__item__image-wrapper">
-						<div class="service-one__item__image sisu-tilt" data-tilt-options='{ "glare": false, "maxGlare": 0, "maxTilt": 7, "speed": 700, "scale": 1 }'>
+						<div class="service-one__item__image sisu-tilt" data-tilt-options='{ "glare": false, "maxGlare": 0, "maxTilt": 7, "speed": 700, "scale": 1 }' style="-webkit-mask-image: url(#mask-I); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: url(#mask-I); mask-size: contain; mask-repeat: no-repeat; mask-position: center;">
 							<img src="/katale/26-08-2015-01-03-29_IMG_3691.jpg" alt="sisu"/>
 						</div>
 						<div class="service-one__item__ball"></div>
@@ -501,7 +609,7 @@ body.custom-cursor {
 			<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="300ms">
 				<div class="service-one__item" style="--accent-color: #6e1d0f;">
 					<div class="service-one__item__image-wrapper">
-						<div class="service-one__item__image sisu-tilt" data-tilt-options='{ "glare": false, "maxGlare": 0, "maxTilt": 7, "speed": 700, "scale": 1 }'>
+						<div class="service-one__item__image sisu-tilt" data-tilt-options='{ "glare": false, "maxGlare": 0, "maxTilt": 7, "speed": 700, "scale": 1 }' style="-webkit-mask-image: url(#mask-S); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: url(#mask-S); mask-size: contain; mask-repeat: no-repeat; mask-position: center;">
 							<img src="/katale/26-08-2015-12-49-54__MG_8635.jpg" alt="sisu"/>
 						</div>
 						<div class="service-one__item__ball"></div>
@@ -512,7 +620,7 @@ body.custom-cursor {
 			<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="400ms">
 				<div class="service-one__item service-one__item--order" style="--accent-color: #6e1d0f;">
 					<div class="service-one__item__image-wrapper">
-						<div class="service-one__item__image sisu-tilt" data-tilt-options='{ "glare": false, "maxGlare": 0, "maxTilt": 7, "speed": 700, "scale": 1 }'>
+						<div class="service-one__item__image sisu-tilt" data-tilt-options='{ "glare": false, "maxGlare": 0, "maxTilt": 7, "speed": 700, "scale": 1 }' style="-webkit-mask-image: url(#mask-U); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: url(#mask-U); mask-size: contain; mask-repeat: no-repeat; mask-position: center;">
 							<img src="/katale/26-08-2015-12-53-17__MG_8683.jpg" alt="sisu"/>
 						</div>
 						<div class="service-one__item__ball"></div>
@@ -535,11 +643,7 @@ body.custom-cursor {
 	<h3 class="sec-title__title">Our passion is childhood,<br> and we’re in kindergarten</h3><!-- /.sec-title__title -->
 </div><!-- /.sec-title -->
 					<p class="about-one__content__text" style="font-family: 'Schoolbell', cursive;">
-						This is an early years independent international
-						school offering both National & International
-						curricular and brings together learners from
-						different parts of Uganda from the age of 2-6years.
-						Started in 2013
+						Scooby Doo International school Uganda is a prominent institution located in Kampala, offering a range of educational services, which includes Daycare and Nursery education. It is known for its holistic, child-centered learning approach and provides a safe and child-friendly environment. The school also emphasizes the importance of parental involvement and offers various activities and events to engage both children and their parents. The school's age group is 2 - 5 years.
 					</p>
 					<a href="#" class="sisu-btn" style="font-family: 'Ubuntu', sans-serif;">
 						<span>School Profile</span>
@@ -704,31 +808,31 @@ body {
 						<div class="testimonial-one__item__author">
 							<img src="/scoobydoo-logo.png" alt="sisu"/>
 							<h5 class="testimonial-one__item__author__name">SISU</h5>
-							<p class="testimonial-one__item__author__designation">Gulu</p>
+							<p class="testimonial-one__item__author__designation">Katale</p>
 						</div>
 					</div>
 				</div>
 				<div class="item">
 					<div class="testimonial-one__item">
 						<div class="testimonial-one__item__quote" style="font-family: 'Schoolbell', cursive;">
-							<strong>VISION:</strong> "At the helm of producing competent, responsible, self-reliant and flexible citizens"
+							<strong>VISION:</strong> "At the helm of producing competent, responsible, self-reliant and flexible citizens."
 						</div>
 						<div class="testimonial-one__item__author">
 							<img src="/scoobydoo-logo.png" alt="sisu"/>
 							<h5 class="testimonial-one__item__author__name">SISU</h5>
-							<p class="testimonial-one__item__author__designation">Gulu</p>
+							<p class="testimonial-one__item__author__designation">Katale</p>
 						</div>
 					</div>
 				</div>
 				<div class="item">
 					<div class="testimonial-one__item">
 						<div class="testimonial-one__item__quote" style="font-family: 'Schoolbell', cursive;">
-							<strong>MISSION:</strong> "To provide quality holistic education that fosters creativity, critical thinking and collaboration to produce competent global citizens"
+							<strong>MISSION:</strong> "To provide quality holistic education that fosters creativity, critical thinking and collaboration to provide global citizens"
 						</div>
 						<div class="testimonial-one__item__author">
 							<img src="/scoobydoo-logo.png" alt="sisu"/>
 							<h5 class="testimonial-one__item__author__name">SISU</h5>
-							<p class="testimonial-one__item__author__designation">Gulu</p>
+							<p class="testimonial-one__item__author__designation">Katale</p>
 						</div>
 					</div>
 				</div>
@@ -736,16 +840,17 @@ body {
 					<div class="testimonial-one__item">
 						<div class="testimonial-one__item__quote" style="font-family: 'Schoolbell', cursive;">
 							<strong>CORE VALUES:</strong><br>
-							• God Fearing<br>
+							• God fearing<br>
 							• Respect<br>
 							• Integrity<br>
-							• Team Work<br>
-							• Excellence
+							• Team work<br>
+							• Excellence<br>
+							• Time management
 						</div>
 						<div class="testimonial-one__item__author">
 							<img src="/scoobydoo-logo.png" alt="sisu"/>
 							<h5 class="testimonial-one__item__author__name">SISU</h5>
-							<p class="testimonial-one__item__author__designation">Gulu</p>
+							<p class="testimonial-one__item__author__designation">Katale</p>
 						</div>
 					</div>
 				</div>
@@ -816,7 +921,7 @@ body {
 	<h3 class="sec-title__title">We meet kids at their level<br> regardless of their age</h3><!-- /.sec-title__title -->
 </div><!-- /.sec-title -->
 		<div class="row">
-			<div class="col-lg-3 col-md-6">
+			<div class="col-lg-4 col-md-6">
 				<div class="program-one__item wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='00ms' style='--accent-color: #F25334;'>
     <div class="program-one__item__shape">
         <svg class="program-one__item__shape-one" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 43">
@@ -828,17 +933,17 @@ body {
     </div>
     <div class="program-one__item__bg"></div>
     <div class="program-one__item__image">
-        <img src="/katale/26-08-2015-12-55-02_1.jpg" alt="Toddler">
+        <img src="/Kampala/Preschool.jpeg" alt="Preschool">
     </div><!-- /.program-one__item__image -->
     <div class="program-one__item__content">
-        <h3 class="program-one__item__title"><a href="programs-d-toddler.html">Toddler</a></h3><!-- /.program-one__item__title -->
-        <div class="program-one__item__age">(1.5-3 years)</div><!-- /.program-one__item__age -->
-        <p class="program-one__item__text" style="font-family: 'Ubuntu', sans-serif;">Kids in all age groups</p><!-- /.program-one__item__text -->
-        <a class="program-one__item__rm" href="programs-d-toddler.html"><span class="icon-right-arrow"></span></a><!-- /.program-one__item__text -->
+        <h3 class="program-one__item__title"><a href="programs-d-preschool.html">Preschool</a></h3><!-- /.program-one__item__title -->
+        <div class="program-one__item__age">(3-4 years)</div><!-- /.program-one__item__age -->
+        <p class="program-one__item__text" style="font-family: 'Ubuntu', sans-serif;">Early childhood development program</p><!-- /.program-one__item__text -->
+        <a class="program-one__item__rm" href="programs-d-preschool.html"><span class="icon-right-arrow"></span></a><!-- /.program-one__item__text -->
     </div><!-- /.program-one__item__content -->
 </div><!-- /.program-one__item__one -->
 			</div><!-- /.program-item -->
-			<div class="col-lg-3 col-md-6">
+			<div class="col-lg-4 col-md-6">
 				<div class="program-one__item program-one__item--order wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms' style='--accent-color: #75C137;'>
     <div class="program-one__item__shape">
         <svg class="program-one__item__shape-one" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 43">
@@ -850,17 +955,17 @@ body {
     </div>
     <div class="program-one__item__bg"></div>
     <div class="program-one__item__image">
-        <img src="/katale/15-09-2015-12-03-57_DSCN1414.jpg" alt="Preschool">
+        <img src="/Kampala/Kindergarten.jpeg" alt="Kindergarten">
     </div><!-- /.program-one__item__image -->
     <div class="program-one__item__content">
-        <h3 class="program-one__item__title"><a href="programs-d-preschool.html">Preschool</a></h3><!-- /.program-one__item__title -->
-        <div class="program-one__item__age">(2-3 years)</div><!-- /.program-one__item__age -->
-        <p class="program-one__item__text" style="font-family: 'Ubuntu', sans-serif;">Kids in all age groups</p><!-- /.program-one__item__text -->
-        <a class="program-one__item__rm" href="programs-d-preschool.html"><span class="icon-right-arrow"></span></a><!-- /.program-one__item__text -->
+        <h3 class="program-one__item__title"><a href="programs-d-kindergarten.html">Kindergarten</a></h3><!-- /.program-one__item__title -->
+        <div class="program-one__item__age">(4-5 years)</div><!-- /.program-one__item__age -->
+        <p class="program-one__item__text" style="font-family: 'Ubuntu', sans-serif;">Preparing for primary education</p><!-- /.program-one__item__text -->
+        <a class="program-one__item__rm" href="programs-d-kindergarten.html"><span class="icon-right-arrow"></span></a><!-- /.program-one__item__text -->
     </div><!-- /.program-one__item__content -->
 </div><!-- /.program-one__item__one -->
 			</div><!-- /.program-item -->
-			<div class="col-lg-3 col-md-6">
+			<div class="col-lg-4 col-md-6">
 				<div class="program-one__item wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='200ms' style='--accent-color: #2390FF;'>
     <div class="program-one__item__shape">
         <svg class="program-one__item__shape-one" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 43">
@@ -872,35 +977,13 @@ body {
     </div>
     <div class="program-one__item__bg"></div>
     <div class="program-one__item__image">
-        <img src="/katale/26-08-2015-01-12-29_IMG_3773.jpg" alt="Kindergarten">
+        <img src="/Kampala/Toddlers.jpeg" alt="Toddler">
     </div><!-- /.program-one__item__image -->
     <div class="program-one__item__content">
-        <h3 class="program-one__item__title"><a href="programs-d-kindergarten.html">Kindergarten</a></h3><!-- /.program-one__item__title -->
-        <div class="program-one__item__age">(4-5 years)</div><!-- /.program-one__item__age -->
-        <p class="program-one__item__text" style="font-family: 'Ubuntu', sans-serif;">Kids in all age groups</p><!-- /.program-one__item__text -->
-        <a class="program-one__item__rm" href="programs-d-kindergarten.html"><span class="icon-right-arrow"></span></a><!-- /.program-one__item__text -->
-    </div><!-- /.program-one__item__content -->
-</div><!-- /.program-one__item__one -->
-			</div><!-- /.program-item -->
-			<div class="col-lg-3 col-md-6">
-				<div class="program-one__item program-one__item--order wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms' style='--accent-color: #FFAA23;'>
-    <div class="program-one__item__shape">
-        <svg class="program-one__item__shape-one" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 43">
-            <path d="M11.0817 6.98831C-9.7901 23.3302 2.35379 52.1177 18.5511 39.5735C34.7647 27.0458 39.1287 -14.9434 11.0817 6.98831Z"/>
-        </svg>
-        <svg class="program-one__item__shape-two" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 21">
-            <path d="M5.28824 3.20713C-4.67276 11.0063 1.12287 24.745 8.85298 18.7583C16.5909 12.7795 18.6736 -7.25972 5.28824 3.20713Z"/>
-        </svg>
-    </div>
-    <div class="program-one__item__bg"></div>
-    <div class="program-one__item__image">
-        <img src="/katale/26-08-2015-12-53-17__MG_8683.jpg" alt="Flex-care">
-    </div><!-- /.program-one__item__image -->
-    <div class="program-one__item__content">
-        <h3 class="program-one__item__title"><a href="programs-d-flex-care.html">Flex-care</a></h3><!-- /.program-one__item__title -->
-        <div class="program-one__item__age">(5-12 years)</div><!-- /.program-one__item__age -->
-        <p class="program-one__item__text" style="font-family: 'Ubuntu', sans-serif;">Kids in all age groups</p><!-- /.program-one__item__text -->
-        <a class="program-one__item__rm" href="programs-d-flex-care.html"><span class="icon-right-arrow"></span></a><!-- /.program-one__item__text -->
+        <h3 class="program-one__item__title"><a href="programs-d-toddler.html">Toddlers</a></h3><!-- /.program-one__item__title -->
+        <div class="program-one__item__age">(2-3 years)</div><!-- /.program-one__item__age -->
+        <p class="program-one__item__text" style="font-family: 'Ubuntu', sans-serif;">Nurturing and play-based learning</p><!-- /.program-one__item__text -->
+        <a class="program-one__item__rm" href="programs-d-toddler.html"><span class="icon-right-arrow"></span></a><!-- /.program-one__item__text -->
     </div><!-- /.program-one__item__content -->
 </div><!-- /.program-one__item__one -->
 			</div><!-- /.program-item -->
@@ -962,13 +1045,13 @@ body {
 		</svg>
 	</div><!-- /.middle__shape -->
 	<div class="team-card__image sisu-tilt" data-tilt-options='{ "glare": false, "maxGlare": 0, "maxTilt": 5, "speed": 700, "scale": 1 }'>
-		<img src="/katale/26-08-2015-12-54-03__MG_9650.jpg" alt="Jane cooper">
+		<img src="/Kampala/GES Executive Chairperson Mrs Harriet Mulyanti.JPG" alt="Mrs Mulyanti Harriet">
 	</div><!-- /.team-card__image -->
 	<div class="team-card__content">
 		<h3 class="team-card__title">
-			<a href="team-details.html">Anne Mubiru</a>
+			<a href="#">Mrs Mulyanti Harriet</a>
 		</h3><!-- /.team-card__title -->
-		<p class="team-card__designation">Art Teacher</p><!-- /.team-card__designation -->
+		<p class="team-card__designation">Executive Chairperson</p><!-- /.team-card__designation -->
 		<div class="list-unstyled team-card__social__list">
 			<a class="fb" href="https://facebook.com/">
 	<span class="social-bg">
@@ -1008,13 +1091,13 @@ body {
 		</svg>
 	</div><!-- /.middle__shape -->
 	<div class="team-card__image sisu-tilt" data-tilt-options='{ "glare": false, "maxGlare": 0, "maxTilt": 5, "speed": 700, "scale": 1 }'>
-		<img src="/katale/26-08-2015-12-55-02_1.jpg" alt="Cody fisher">
+		<img src="/Kampala/Owek. Kyewalabye David Male.jpg" alt="Owek. David Kyewalabye Male">
 	</div><!-- /.team-card__image -->
 	<div class="team-card__content">
 		<h3 class="team-card__title">
-			<a href="team-details.html">Daniella Nakayenga</a>
+			<a href="#">Owek. David Kyewalabye Male</a>
 		</h3><!-- /.team-card__title -->
-		<p class="team-card__designation">Rector</p><!-- /.team-card__designation -->
+		<p class="team-card__designation">Director</p><!-- /.team-card__designation -->
 		<div class="list-unstyled team-card__social__list">
 			<a class="fb" href="https://facebook.com/">
 	<span class="social-bg">
@@ -1054,13 +1137,13 @@ body {
 		</svg>
 	</div><!-- /.middle__shape -->
 	<div class="team-card__image sisu-tilt" data-tilt-options='{ "glare": false, "maxGlare": 0, "maxTilt": 5, "speed": 700, "scale": 1 }'>
-		<img src="/JimmySsekasi.png" alt="Floyd miles">
+		<img src="/Kampala/GES Rector - Daniella Nakayenga.jpeg" alt="Nakayenga Daniella">
 	</div><!-- /.team-card__image -->
 	<div class="team-card__content">
 		<h3 class="team-card__title">
-			<a href="team-details.html">Jimmy Ssekasi</a>
+			<a href="#">Nakayenga Daniella</a>
 		</h3><!-- /.team-card__title -->
-		<p class="team-card__designation">Founder</p><!-- /.team-card__designation -->
+		<p class="team-card__designation">Rector</p><!-- /.team-card__designation -->
 		<div class="list-unstyled team-card__social__list">
 			<a class="fb" href="https://facebook.com/">
 	<span class="social-bg">
@@ -1110,8 +1193,8 @@ body {
                   .mail-one__form input[type=text]{width:170px;}
                   .sg-wa-btn{background-color:#25D366!important;}
                 </style>
-                <h3 class="mail-one__title">Sign Up a Learner<br> at SISU Gulu</h3>
-                <form action="#" class="mail-one__form mc-form" onsubmit="(function(f){var n=f.querySelector('[name=LEARNER_NAME]').value.trim(),e=f.querySelector('[name=PARENT_EMAIL]').value.trim();if(!n||!e){return false;}var msg='Hello+SISU+Gulu%2C+I+would+like+to+sign+up+my+child.%0AName%3A+'+encodeURIComponent(n)+'%0AParent+Email%3A+'+encodeURIComponent(e);window.open('https://wa.me/256708800006?text='+msg,'_blank');return false;})(this);return false;">
+                <h3 class="mail-one__title">Sign Up a Learner<br> at SISU Katale</h3>
+                <form action="#" class="mail-one__form mc-form" onsubmit="(function(f){var n=f.querySelector('[name=LEARNER_NAME]').value.trim(),e=f.querySelector('[name=PARENT_EMAIL]').value.trim();if(!n||!e){return false;}var msg='Hello+SISU+Katale%2C+I+would+like+to+sign+up+my+child.%0AName%3A+'+encodeURIComponent(n)+'%0AParent+Email%3A+'+encodeURIComponent(e);window.open('https://wa.me/256708800006?text='+msg,'_blank');return false;})(this);return false;">
                     <input type="text" name="LEARNER_NAME" placeholder="Learner's Full Name" required>
                     <input type="email" name="PARENT_EMAIL" placeholder="Parent's Email" required>
                     <button type="submit" class="sisu-btn sg-wa-btn" title="Send via WhatsApp" style="display:inline-flex;align-items:center;gap:8px;padding:11px 28px;">
@@ -1183,29 +1266,29 @@ body {
 				<div class="blog-card-three wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='00ms' style='--accent-color: #F25334;'>
     <div class="blog-card-three__bg"></div>
     <div class="blog-card-three__image">
-        <img src="/katale/26-08-2015-01-01-46_IMG_1441.jpg" alt="10 easy steps to more learn about play">
+        <img src="/katale/26-08-2015-01-01-46_IMG_1441.jpg" alt="Play-Based Learning: Nurturing Creative Minds in Uganda's Early Years">
         <div class="blog-card-three__image__layer-wrapper">
-            <div class="blog-card-three__image__layer" style="background-image: url(/premium_photo-1661861141158-be08023174e6.avif);"></div>
-            <div class="blog-card-three__image__layer" style="background-image: url(/premium_photo-1666956837879-fafe054d850c.avif);"></div>
-            <div class="blog-card-three__image__layer" style="background-image: url(/premium_photo-1713890429200-e725c894ab95.avif);"></div>
-            <div class="blog-card-three__image__layer" style="background-image: url(/science.avif);"></div>
+            <div class="blog-card-three__image__layer" style="background-image: url('/katale/26-08-2015-01-12-29_IMG_3773.jpg');"></div>
+            <div class="blog-card-three__image__layer" style="background-image: url('/katale/26-08-2015-01-12-29_IMG_3773.jpg');"></div>
+            <div class="blog-card-three__image__layer" style="background-image: url('/katale/26-08-2015-01-12-29_IMG_3773.jpg');"></div>
+            <div class="blog-card-three__image__layer" style="background-image: url('/katale/26-08-2015-01-12-29_IMG_3773.jpg');"></div>
         </div>
-        <a href="blog-details-left.html" class="blog-card-three__image__link"><span class="sr-only">10 easy steps to more learn about play</span><!-- /.sr-only --></a>
+        <a href="blog-details-left.html" class="blog-card-three__image__link"><span class="sr-only">Play-Based Learning: Nurturing Creative Minds in Uganda's Early Years</span><!-- /.sr-only --></a>
     </div><!-- /.blog-card-three__image -->
     <div class="blog-card-three__content">
         <div class="blog-card-three__content__top">
-            <a href="blog-list.html" class="blog-card-three__category">Kindergarten</a>
-            <div class="blog-card-three__date">30 Mar, 2023</div><!-- /.blog-card-three__date -->
+            <a href="blog-list.html" class="blog-card-three__category">Early Years</a>
+            <div class="blog-card-three__date">30 Mar, 2026</div><!-- /.blog-card-three__date -->
         </div><!-- /.blog-card-three__content__top -->
-        <h3 class="blog-card-three__title"><a href="blog-details-left.html">10 easy steps to more learn about play</a></h3><!-- /.blog-card-three__title -->
+        <h3 class="blog-card-three__title"><a href="blog-details-left.html">Play-Based Learning: Nurturing Creative Minds in Uganda's Early Years</a></h3><!-- /.blog-card-three__title -->
         <div class="blog-card-three__content__bottom">
             <div class="blog-card-three__author">
                 <div class="blog-card-three__author__image">
-                    <img src="/GES.png" alt="Wade Warren">
+                    <img src="/Kampala/Owek. Kyewalabye David Male.jpg" alt="Owek. David Kyewalabye Male">
                 </div><!-- /.blog-card-three__author__image -->
                 <div class="blog-card-three__author__content">
-                    <h4 class="blog-card-three__author__name">Owek. David Kiwalabye Male</h4><!-- /.blog-card-three__author__name -->
-                    <p class="blog-card-three__author__designation">CEO</p><!-- /.blog-card-three__author__designation -->
+                    <h4 class="blog-card-three__author__name">Owek. David Kyewalabye Male</h4><!-- /.blog-card-three__author__name -->
+                    <p class="blog-card-three__author__designation">Director</p><!-- /.blog-card-three__author__designation -->
                 </div><!-- /.blog-card-three__author__content -->
             </div><!-- /.blog-card-three__author -->
         </div><!-- /.blog-card-three__content__bottom -->
@@ -1216,28 +1299,27 @@ body {
 				<div class="blog-card-three wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms' style='--accent-color: #2390FF;'>
     <div class="blog-card-three__bg"></div>
     <div class="blog-card-three__image">
-        <img src="/katale/26-08-2015-01-03-29_IMG_3691.jpg" alt="The complete kindearn design guideline 2023">
+        <img src="/katale/26-08-2015-01-03-29_IMG_3691.jpg" alt="Understanding the National Early Childhood Development Policy Guidelines">
         <div class="blog-card-three__image__layer-wrapper">
-            <div class="blog-card-three__image__layer" style="background-image: url(/premium_photo-1722384028426-6ca4e892d7ab.avif);"></div>
-            <div class="blog-card-three__image__layer" style="background-image: url(/premium_photo-1723050053847-2aaf8ad2c74c.avif);"></div>
-            <div class="blog-card-three__image__layer" style="background-image: url(/premium_photo-1723050053855-a6c2961b302a.avif);"></div>
-            <div class="blog-card-three__image__layer" style="background-image: url(/science.avif);"></div>
+            <div class="blog-card-three__image__layer" style="background-image: url('/katale/15-09-2015-12-03-57_DSCN1414.jpg');"></div>
+            <div class="blog-card-three__image__layer" style="background-image: url('/katale/15-09-2015-12-03-57_DSCN1414.jpg');"></div>
+            <div class="blog-card-three__image__layer" style="background-image: url('/katale/15-09-2015-12-03-57_DSCN1414.jpg');"></div>
+            <div class="blog-card-three__image__layer" style="background-image: url('/katale/15-09-2015-12-03-57_DSCN1414.jpg');"></div>
         </div>
-        <a href="blog-details-left.html" class="blog-card-three__image__link"><span class="sr-only">The complete kindearn design guideline 2023</span><!-- /.sr-only --></a>
     </div><!-- /.blog-card-three__image -->
     <div class="blog-card-three__content">
         <div class="blog-card-three__content__top">
-            <a href="blog-list.html" class="blog-card-three__category">Painting</a>
-            <div class="blog-card-three__date">26 Mar, 2023</div><!-- /.blog-card-three__date -->
+            <span class="blog-card-three__category" style="color: var(--sisu-accent, #2390FF);">ECD Policy</span>
+            <div class="blog-card-three__date">26 Mar, 2026</div><!-- /.blog-card-three__date -->
         </div><!-- /.blog-card-three__content__top -->
-        <h3 class="blog-card-three__title"><a href="blog-details-left.html">The complete kindearn design guideline 2023</a></h3><!-- /.blog-card-three__title -->
+        <h3 class="blog-card-three__title" style="color: var(--sisu-title-color, #1F2229);">Understanding the National Early Childhood Development Policy Guidelines</h3><!-- /.blog-card-three__title -->
         <div class="blog-card-three__content__bottom">
             <div class="blog-card-three__author">
                 <div class="blog-card-three__author__image">
-                    <img src="/GombeBadge.png" alt="Darlene Robertson">
+                    <img src="/Kampala/GES Rector - Daniella Nakayenga.jpeg" alt="Nakayenga Daniella">
                 </div><!-- /.blog-card-three__author__image -->
                 <div class="blog-card-three__author__content">
-                    <h4 class="blog-card-three__author__name">Daniella Nakayenga</h4><!-- /.blog-card-three__author__name -->
+                    <h4 class="blog-card-three__author__name">Nakayenga Daniella</h4><!-- /.blog-card-three__author__name -->
                     <p class="blog-card-three__author__designation">Rector</p><!-- /.blog-card-three__author__designation -->
                 </div><!-- /.blog-card-three__author__content -->
             </div><!-- /.blog-card-three__author -->
@@ -1249,29 +1331,29 @@ body {
 				<div class="blog-card-three wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='200ms' style='--accent-color: #75C137;'>
     <div class="blog-card-three__bg"></div>
     <div class="blog-card-three__image">
-        <img src="/katale/26-08-2015-12-49-54__MG_8635.jpg" alt="Choose the best child care center for you!">
+        <img src="/katale/26-08-2015-12-49-54__MG_8635.jpg" alt="A Parent's Guide to Choosing the Right Daycare in Kampala">
         <div class="blog-card-three__image__layer-wrapper">
-            <div class="blog-card-three__image__layer" style="background-image: url(/premium_photo-1724026586579-5c413598de2c.avif);"></div>
-            <div class="blog-card-three__image__layer" style="background-image: url(/premium_photo-1661861141158-be08023174e6.avif);"></div>
-            <div class="blog-card-three__image__layer" style="background-image: url(/premium_photo-1722384028426-6ca4e892d7ab.avif);"></div>
-            <div class="blog-card-three__image__layer" style="background-image: url(/science.avif);"></div>
+            <div class="blog-card-three__image__layer" style="background-image: url('/katale/26-08-2015-12-55-02_1.jpg');"></div>
+            <div class="blog-card-three__image__layer" style="background-image: url('/katale/26-08-2015-12-55-02_1.jpg');"></div>
+            <div class="blog-card-three__image__layer" style="background-image: url('/katale/26-08-2015-12-55-02_1.jpg');"></div>
+            <div class="blog-card-three__image__layer" style="background-image: url('/katale/26-08-2015-12-55-02_1.jpg');"></div>
         </div>
-        <a href="blog-details-left.html" class="blog-card-three__image__link"><span class="sr-only">Choose the best child care center for you!</span><!-- /.sr-only --></a>
+        <a href="blog-details-left.html" class="blog-card-three__image__link"><span class="sr-only">A Parent's Guide to Choosing the Right Daycare in Kampala</span><!-- /.sr-only --></a>
     </div><!-- /.blog-card-three__image -->
     <div class="blog-card-three__content">
         <div class="blog-card-three__content__top">
-            <a href="blog-list.html" class="blog-card-three__category">Gaming</a>
-            <div class="blog-card-three__date">28 Mar, 2023</div><!-- /.blog-card-three__date -->
+            <a href="blog-list.html" class="blog-card-three__category">Parenting Tips</a>
+            <div class="blog-card-three__date">28 Mar, 2026</div><!-- /.blog-card-three__date -->
         </div><!-- /.blog-card-three__content__top -->
-        <h3 class="blog-card-three__title"><a href="blog-details-left.html">Choose the best child care center for you!</a></h3><!-- /.blog-card-three__title -->
+        <h3 class="blog-card-three__title"><a href="blog-details-left.html">A Parent's Guide to Choosing the Right Daycare in Kampala</a></h3><!-- /.blog-card-three__title -->
         <div class="blog-card-three__content__bottom">
             <div class="blog-card-three__author">
                 <div class="blog-card-three__author__image">
-                    <img src="/Inzozi-grayscale.png" alt="Cody Fisher">
+                    <img src="/Kampala/GES Executive Chairperson Mrs Harriet Mulyanti.JPG" alt="Mrs Mulyanti Harriet">
                 </div><!-- /.blog-card-three__author__image -->
                 <div class="blog-card-three__author__content">
-                    <h4 class="blog-card-three__author__name">Harriet Mulyanti</h4><!-- /.blog-card-three__author__name -->
-                    <p class="blog-card-three__author__designation">Board Chair</p><!-- /.blog-card-three__author__designation -->
+                    <h4 class="blog-card-three__author__name">Mrs Mulyanti Harriet</h4><!-- /.blog-card-three__author__name -->
+                    <p class="blog-card-three__author__designation">Executive Chairperson</p><!-- /.blog-card-three__author__designation -->
                 </div><!-- /.blog-card-three__author__content -->
             </div><!-- /.blog-card-three__author -->
         </div><!-- /.blog-card-three__content__bottom -->
@@ -1299,7 +1381,7 @@ body {
 						<ul class="list-unstyled footer-widget__info">
 							<li>
 								<i class="icon-location2 footer-widget__info__icon"></i>
-								<a href="#">Gulu Town, Uganda</a></li>
+								<a href="#">Seguku, Katale road off Nebalamye Mayanja.</a></li>
 							<li>
 								<i class="icon-call footer-widget__info__icon"></i>
 								<a href="tel:+256414694516">Tel: +256-414 694 516</a></li>
@@ -1311,7 +1393,7 @@ body {
 								<a href="tel:+256708800006">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+256-708 800 006</a></li>
 							<li>
 								<i class="icon-email1 footer-widget__info__icon"></i>
-								<a href="mailto:info@scoobydoodaycare.com">info@scoobydoodaycare.com</a></li>
+								<a href="mailto:coordinator@scoobydoointernational.ac.ug">coordinator@scoobydoointernational.ac.ug</a></li>
 						</ul><!-- /.list-unstyled -->
 						<div class="footer-widget__social" style="flex-wrap: nowrap; overflow-x: auto;">
 							<a href="https://linkedin.com/" title="LinkedIn" style="width:40px;height:41px;font-size:17px;">
@@ -1419,7 +1501,7 @@ body {
 	</div><!-- /.main-footer__top -->
 	<div class="main-footer__bottom" style="text-align: left; padding-bottom: 30px;">
 		<div class="container">
-			<div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+			<div style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
 				<p class="main-footer__copyright" style="margin: 0; white-space: nowrap;">
 					&copy; Copyright 2026 Scoobydoo International School Uganda (SISU).
 				</p>
@@ -1457,7 +1539,7 @@ body {
         <ul class="mobile-nav__contact list-unstyled">
             <li>
                 <i class="fa fa-envelope"></i>
-                <a href="mailto:info@ges.ac.ug">info@ges.ac.ug</a>
+                <a href="mailto:coordinator@scoobydoointernational.ac.ug">coordinator@scoobydoointernational.ac.ug</a>
             </li>
             <li>
                 <i class="fa fa-phone-alt"></i>
