@@ -148,7 +148,7 @@ body.custom-cursor {
   display: flex;
   align-items: center;
   padding: 160px 5vw 140px;
-	background: linear-gradient(var(--hero-overlay), var(--hero-overlay)), url('/katale/SCOOBY EDITED.JPG') center/cover no-repeat;
+	background: linear-gradient(var(--hero-overlay), var(--hero-overlay)), url('/SISU%20Kampala/hero-triptych.jpeg') center/cover no-repeat;
   overflow: visible;
 }
 
@@ -321,6 +321,31 @@ body.custom-cursor {
 	color: white !important;
 	font-family: 'Ubuntu', sans-serif !important;
 }
+
+/* === About dropdown: playful yellow restyle === */
+.main-menu .main-menu__list li ul {
+  background-color: #ffb606 !important;
+  border: 2px solid #ffffff;
+  border-radius: 16px;
+  padding: 14px 14px;
+  box-shadow: 0 18px 50px rgba(110, 29, 15, 0.30);
+  min-width: 285px;
+}
+.main-menu .main-menu__list li ul li > a {
+  font-family: "Schoolbell", cursive !important;
+  font-size: 21px !important;
+  line-height: 30px !important;
+  font-weight: 600;
+  color: #6e1d0f !important;
+  white-space: nowrap;
+  padding: 6px 18px;
+  border-radius: 12px;
+}
+.main-menu .main-menu__list li ul li.current > a,
+.main-menu .main-menu__list li ul li:hover > a {
+  background-color: #6e1d0f !important;
+  color: #ffffff !important;
+}
 </style>
 
 <style>
@@ -419,6 +444,128 @@ body.custom-cursor {
   object-fit: cover;
 }
 </style>
+
+<style id="visual-polish">
+/* ============================================================
+   VISUAL POLISH PASS — modern refinements, brand colors kept.
+   Remove this block to fully revert.
+   ============================================================ */
+
+html { scroll-behavior: smooth; }
+
+/* --- Hero: brand-tinted overlay + depth --- */
+.landing-hero {
+  background:
+    linear-gradient(135deg, rgba(7, 21, 38, 0.88) 0%, rgba(15, 19, 28, 0.72) 55%, rgba(110, 29, 15, 0.55) 100%),
+    url('/SISU%20Kampala/hero-triptych.jpeg') center/cover no-repeat;
+}
+
+.landing-hero__title {
+  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.45);
+  letter-spacing: 0.5px;
+}
+
+.landing-hero__subtitle {
+  font-size: 21px;
+  color: #ffd97a;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.landing-hero__cta {
+  border-radius: 12px;
+  padding: 17px 34px;
+  letter-spacing: 0.4px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+.landing-hero__cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(255, 182, 6, 0.4);
+}
+
+.landing-hero__campus-name {
+  text-shadow: 0 3px 16px rgba(0, 0, 0, 0.55);
+}
+
+/* Header scrim so nav stays readable over any hero photo */
+.main-header.sticky-header::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 160%;
+  background: linear-gradient(to bottom, rgba(5, 10, 20, 0.55), transparent);
+  pointer-events: none;
+}
+.main-header__inner { position: relative; }
+
+/* --- Logo ticker: soft fade at edges --- */
+.logo-ticker > div {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+/* --- Cards: gentle lift + image zoom on hover --- */
+.program-one__item,
+.blog-card-three,
+.team-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 18px;
+}
+.program-one__item:hover,
+.blog-card-three:hover,
+.team-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 45px rgba(15, 19, 28, 0.12);
+}
+
+.program-one__item__image,
+.blog-card-three__image,
+.about-one__image__one,
+.video-one__btn {
+  overflow: hidden;
+}
+.program-one__item__image img,
+.blog-card-three__image > img,
+.video-one__btn img {
+  transition: transform 0.5s ease;
+}
+.program-one__item:hover .program-one__item__image img,
+.blog-card-three:hover .blog-card-three__image > img,
+.video-one__btn:hover img {
+  transform: scale(1.05);
+}
+
+/* --- Smooth link & button transitions everywhere --- */
+a, button { transition: color 0.2s ease, background-color 0.2s ease, opacity 0.2s ease; }
+
+/* --- Section headings: subtle brand underline flourish --- */
+.sec-title__tagline {
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+.sec-title__title { letter-spacing: 0.3px; }
+
+/* --- Footer: refined link hover --- */
+.footer-widget__links a:hover,
+.footer-widget__info a:hover {
+  color: #ffb606 !important;
+  padding-left: 4px;
+}
+.footer-widget__links a,
+.footer-widget__info a { transition: color 0.2s ease, padding-left 0.2s ease; }
+
+/* --- Accessible focus states --- */
+a:focus-visible, button:focus-visible {
+  outline: 3px solid rgba(255, 182, 6, 0.65);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* --- Mail / newsletter section polish --- */
+.mail-one input[type="email"],
+.mail-one input[type="text"] {
+  border-radius: 12px;
+}
+</style>
 </head>
 
 <body class="custom-cursor">
@@ -453,28 +600,28 @@ body.custom-cursor {
         <div class="main-header__inner">
 
 			<div class="main-header__brand">
-				<a href="index.html" class="main-header__brand-link">
+				<a href="sisu-katale-index.html" class="main-header__brand-link">
 					<img src="/scooby-logo.png" alt="Scooby-Doo International School" />
 				</a>
 			</div>
 
             <nav class="main-header__nav main-menu">
               <ul class="main-menu__list">
-                <li><a href="#">Home</a></li>
-				<li class="dropdown"><a href="#about-us">About</a>
+                <li><a href="sisu-katale-index.html">Home</a></li>
+				<li class="dropdown"><a href="sisu-katale-index.html#about-us">About</a>
 					<ul>
-						<li><a href="#about-profile">School Profile</a></li>
-						<li><a href="#about-mission">Mission &amp; Vision</a></li>
-						<li><a href="#about-values">Core Values</a></li>
-						<li><a href="#about-bog">Board of Governors</a></li>
-						<li><a href="#about-principal">Principal's Message</a></li>
-						<li><a href="#about-admin">Administration &amp; Management</a></li>
+						<li class="scrollToLink"><a href="#about-profile">School Profile</a></li>
+						<li class="scrollToLink"><a href="#about-mission">Mission &amp; Vision</a></li>
+						<li class="scrollToLink"><a href="#about-mission">Core Values</a></li>
+						<li class="scrollToLink"><a href="#about-bog">School Management Committee</a></li>
+						<li><a href="coordinator-message.html">Campus Coordinator Message</a></li>
+						<li><a href="administration-management.html">Administration &amp; Management</a></li>
 					</ul>
 				</li>
-				<li><a href="#">Events</a></li>
-				<li><a href="#">Programs</a></li>
-				<li><a href="#">News</a></li>
-                <li><a href="#">Contact</a></li>
+				<li class="scrollToLink"><a href="#news">Events</a></li>
+				<li class="scrollToLink"><a href="#programs">Programs</a></li>
+				<li class="scrollToLink"><a href="#news">News</a></li>
+                <li class="scrollToLink"><a href="#contact">Contact</a></li>
               </ul>
             </nav><!-- /.main-header__nav -->
             <div class="main-header__right">
@@ -495,7 +642,7 @@ body.custom-cursor {
         <div class="landing-hero__content">
           <h1 class="landing-hero__title" style="font-family: 'Cinzel', serif; font-weight: 400; color: white; width: 100%; max-width: 100%;">Scooby Doo International School Uganda</h1>
           <p class="landing-hero__subtitle" style="font-family: 'Schoolbell', cursive;">Active Learning, Expert Teachers & Safe Environment</p>
-          <a href="contact.html" class="landing-hero__cta" style="font-family: 'Ubuntu', sans-serif;">Admissions</a>
+          <a href="/SISU%20ADMISSION%20FORM..pdf" download="SISU Admission Form.pdf" class="landing-hero__cta" style="font-family: 'Ubuntu', sans-serif;">Admissions</a>
         </div>
       </div>
       <div class="col-lg-6">
@@ -541,7 +688,7 @@ body.custom-cursor {
       <img src="/Gombe High logo.png" alt="Gombe High School">
       <img src="/Gombe Junior School logo.png" alt="Gombe Junior School">
       <img src="/IEPP.png" alt="IEPP">
-      <img src="/KISU.png" alt="KISU">
+      <img src="/sai-brand-logo.png" alt="SAI International School">
       <img src="/MoES1.png" alt="Ministry of Education">
       <img src="/Jimmy Ssekasi Business Institute Logo.png" alt="Jimmy Ssekasi Business Institute">
       <img src="/Flag_of_Buganda.svg" alt="Buganda">
@@ -550,7 +697,7 @@ body.custom-cursor {
       <img src="/Gombe High logo.png" alt="Gombe High School">
       <img src="/Gombe Junior School logo.png" alt="Gombe Junior School">
       <img src="/IEPP.png" alt="IEPP">
-      <img src="/KISU.png" alt="KISU">
+      <img src="/sai-brand-logo.png" alt="SAI International School">
       <img src="/MoES1.png" alt="Ministry of Education">
       <img src="/Jimmy Ssekasi Business Institute Logo.png" alt="Jimmy Ssekasi Business Institute">
       <img src="/Flag_of_Buganda.svg" alt="Buganda">
@@ -559,7 +706,7 @@ body.custom-cursor {
       <img src="/Gombe High logo.png" alt="Gombe High School">
       <img src="/Gombe Junior School logo.png" alt="Gombe Junior School">
       <img src="/IEPP.png" alt="IEPP">
-      <img src="/KISU.png" alt="KISU">
+      <img src="/sai-brand-logo.png" alt="SAI International School">
       <img src="/MoES1.png" alt="Ministry of Education">
       <img src="/Jimmy Ssekasi Business Institute Logo.png" alt="Jimmy Ssekasi Business Institute">
       <img src="/Flag_of_Buganda.svg" alt="Buganda">
@@ -587,8 +734,8 @@ body.custom-cursor {
 			<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="100ms">
 				<div class="service-one__item" style="--accent-color: #6e1d0f;">
 					<div class="service-one__item__image-wrapper">
-						<div class="service-one__item__image sisu-tilt" data-tilt-options='{ "glare": false, "maxGlare": 0, "maxTilt": 7, "speed": 700, "scale": 1 }' style="-webkit-mask-image: url(#mask-S); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: url(#mask-S); mask-size: contain; mask-repeat: no-repeat; mask-position: center;">
-							<img src="/katale/26-08-2015-01-01-46_IMG_1441.jpg" alt="sisu"/>
+						<div class="service-one__item__image sisu-tilt" data-tilt-options='{ "glare": false, "maxGlare": 0, "maxTilt": 7, "speed": 700, "scale": 1 }' style="-webkit-mask-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%2776%20-1591%201319%201690%27%3E%3Cpath%20transform%3D%27scale%281%2C-1%29%27%20fill%3D%27%23fff%27%20d%3D%27M1227%201446V1130Q1104%201185%20987%201213Q870%201241%20766%201241Q628%201241%20562%201203Q496%201165%20496%201085Q496%201025%20540%20992Q585%20958%20702%20934L866%20901Q1115%20851%201220%20749Q1325%20647%201325%20459Q1325%20212%201178%2092Q1032%20-29%20731%20-29Q589%20-29%20446%20-2Q303%2025%20160%2078V403Q303%20327%20436%20288Q570%20250%20694%20250Q820%20250%20887%20292Q954%20334%20954%20412Q954%20482%20908%20520Q863%20558%20727%20588L578%20621Q354%20669%20250%20774Q147%20879%20147%201057Q147%201280%20291%201400Q435%201520%20705%201520Q828%201520%20958%201502Q1088%201483%201227%201446Z%27%2F%3E%3C%2Fsvg%3E'); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%2776%20-1591%201319%201690%27%3E%3Cpath%20transform%3D%27scale%281%2C-1%29%27%20fill%3D%27%23fff%27%20d%3D%27M1227%201446V1130Q1104%201185%20987%201213Q870%201241%20766%201241Q628%201241%20562%201203Q496%201165%20496%201085Q496%201025%20540%20992Q585%20958%20702%20934L866%20901Q1115%20851%201220%20749Q1325%20647%201325%20459Q1325%20212%201178%2092Q1032%20-29%20731%20-29Q589%20-29%20446%20-2Q303%2025%20160%2078V403Q303%20327%20436%20288Q570%20250%20694%20250Q820%20250%20887%20292Q954%20334%20954%20412Q954%20482%20908%20520Q863%20558%20727%20588L578%20621Q354%20669%20250%20774Q147%20879%20147%201057Q147%201280%20291%201400Q435%201520%20705%201520Q828%201520%20958%201502Q1088%201483%201227%201446Z%27%2F%3E%3C%2Fsvg%3E'); mask-size: contain; mask-repeat: no-repeat; mask-position: center;">
+							<img src="/SISU%20Kampala/SISU-Kampala17.jpeg" alt="sisu"/>
 						</div>
 						<div class="service-one__item__ball"></div>
 					</div>
@@ -598,8 +745,8 @@ body.custom-cursor {
 			<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="200ms">
 				<div class="service-one__item service-one__item--order" style="--accent-color: #6e1d0f;">
 					<div class="service-one__item__image-wrapper">
-						<div class="service-one__item__image sisu-tilt" data-tilt-options='{ "glare": false, "maxGlare": 0, "maxTilt": 7, "speed": 700, "scale": 1 }' style="-webkit-mask-image: url(#mask-I); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: url(#mask-I); mask-size: contain; mask-repeat: no-repeat; mask-position: center;">
-							<img src="/katale/26-08-2015-01-03-29_IMG_3691.jpg" alt="sisu"/>
+						<div class="service-one__item__image sisu-tilt" data-tilt-options='{ "glare": false, "maxGlare": 0, "maxTilt": 7, "speed": 700, "scale": 1 }' style="-webkit-mask-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%27165%20-1516%20431%201539%27%3E%3Cpath%20transform%3D%27scale%281%2C-1%29%27%20fill%3D%27%23fff%27%20d%3D%27M188%201493H573V0H188Z%27%2F%3E%3C%2Fsvg%3E'); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%27165%20-1516%20431%201539%27%3E%3Cpath%20transform%3D%27scale%281%2C-1%29%27%20fill%3D%27%23fff%27%20d%3D%27M188%201493H573V0H188Z%27%2F%3E%3C%2Fsvg%3E'); mask-size: contain; mask-repeat: no-repeat; mask-position: center;">
+							<img src="/SISU%20Kampala/SISU-Kampala18.jpeg" alt="sisu"/>
 						</div>
 						<div class="service-one__item__ball"></div>
 					</div>
@@ -609,8 +756,8 @@ body.custom-cursor {
 			<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="300ms">
 				<div class="service-one__item" style="--accent-color: #6e1d0f;">
 					<div class="service-one__item__image-wrapper">
-						<div class="service-one__item__image sisu-tilt" data-tilt-options='{ "glare": false, "maxGlare": 0, "maxTilt": 7, "speed": 700, "scale": 1 }' style="-webkit-mask-image: url(#mask-S); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: url(#mask-S); mask-size: contain; mask-repeat: no-repeat; mask-position: center;">
-							<img src="/katale/26-08-2015-12-49-54__MG_8635.jpg" alt="sisu"/>
+						<div class="service-one__item__image sisu-tilt" data-tilt-options='{ "glare": false, "maxGlare": 0, "maxTilt": 7, "speed": 700, "scale": 1 }' style="-webkit-mask-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%2776%20-1591%201319%201690%27%3E%3Cpath%20transform%3D%27scale%281%2C-1%29%27%20fill%3D%27%23fff%27%20d%3D%27M1227%201446V1130Q1104%201185%20987%201213Q870%201241%20766%201241Q628%201241%20562%201203Q496%201165%20496%201085Q496%201025%20540%20992Q585%20958%20702%20934L866%20901Q1115%20851%201220%20749Q1325%20647%201325%20459Q1325%20212%201178%2092Q1032%20-29%20731%20-29Q589%20-29%20446%20-2Q303%2025%20160%2078V403Q303%20327%20436%20288Q570%20250%20694%20250Q820%20250%20887%20292Q954%20334%20954%20412Q954%20482%20908%20520Q863%20558%20727%20588L578%20621Q354%20669%20250%20774Q147%20879%20147%201057Q147%201280%20291%201400Q435%201520%20705%201520Q828%201520%20958%201502Q1088%201483%201227%201446Z%27%2F%3E%3C%2Fsvg%3E'); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%2776%20-1591%201319%201690%27%3E%3Cpath%20transform%3D%27scale%281%2C-1%29%27%20fill%3D%27%23fff%27%20d%3D%27M1227%201446V1130Q1104%201185%20987%201213Q870%201241%20766%201241Q628%201241%20562%201203Q496%201165%20496%201085Q496%201025%20540%20992Q585%20958%20702%20934L866%20901Q1115%20851%201220%20749Q1325%20647%201325%20459Q1325%20212%201178%2092Q1032%20-29%20731%20-29Q589%20-29%20446%20-2Q303%2025%20160%2078V403Q303%20327%20436%20288Q570%20250%20694%20250Q820%20250%20887%20292Q954%20334%20954%20412Q954%20482%20908%20520Q863%20558%20727%20588L578%20621Q354%20669%20250%20774Q147%20879%20147%201057Q147%201280%20291%201400Q435%201520%20705%201520Q828%201520%20958%201502Q1088%201483%201227%201446Z%27%2F%3E%3C%2Fsvg%3E'); mask-size: contain; mask-repeat: no-repeat; mask-position: center;">
+							<img src="/SISU%20Kampala/SISU-Kampala19.jpeg" alt="sisu"/>
 						</div>
 						<div class="service-one__item__ball"></div>
 					</div>
@@ -620,8 +767,8 @@ body.custom-cursor {
 			<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="400ms">
 				<div class="service-one__item service-one__item--order" style="--accent-color: #6e1d0f;">
 					<div class="service-one__item__image-wrapper">
-						<div class="service-one__item__image sisu-tilt" data-tilt-options='{ "glare": false, "maxGlare": 0, "maxTilt": 7, "speed": 700, "scale": 1 }' style="-webkit-mask-image: url(#mask-U); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: url(#mask-U); mask-size: contain; mask-repeat: no-repeat; mask-position: center;">
-							<img src="/katale/26-08-2015-12-53-17__MG_8683.jpg" alt="sisu"/>
+						<div class="service-one__item__image sisu-tilt" data-tilt-options='{ "glare": false, "maxGlare": 0, "maxTilt": 7, "speed": 700, "scale": 1 }' style="-webkit-mask-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%27111%20-1570%201441%201676%27%3E%3Cpath%20transform%3D%27scale%281%2C-1%29%27%20fill%3D%27%23fff%27%20d%3D%27M188%201493H573V598Q573%20413%20634%20334Q694%20254%20831%20254Q969%20254%201030%20334Q1090%20413%201090%20598V1493H1475V598Q1475%20281%201316%20126Q1157%20-29%20831%20-29Q506%20-29%20347%20126Q188%20281%20188%20598Z%27%2F%3E%3C%2Fsvg%3E'); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%27111%20-1570%201441%201676%27%3E%3Cpath%20transform%3D%27scale%281%2C-1%29%27%20fill%3D%27%23fff%27%20d%3D%27M188%201493H573V598Q573%20413%20634%20334Q694%20254%20831%20254Q969%20254%201030%20334Q1090%20413%201090%20598V1493H1475V598Q1475%20281%201316%20126Q1157%20-29%20831%20-29Q506%20-29%20347%20126Q188%20281%20188%20598Z%27%2F%3E%3C%2Fsvg%3E'); mask-size: contain; mask-repeat: no-repeat; mask-position: center;">
+							<img src="/SISU%20Kampala/SISU-Kampala20.jpeg" alt="sisu"/>
 						</div>
 						<div class="service-one__item__ball"></div>
 					</div>
@@ -631,7 +778,7 @@ body.custom-cursor {
 		</div>
 	</div>
 </section>
-<section class="about-one">
+<section class="about-one" id="about-profile">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6 wow fadeInLeft" data-wow-delay="200ms">
@@ -653,7 +800,7 @@ body.custom-cursor {
 			<div class="col-lg-6">
 				<div class="about-one__image">
 					<div class="about-one__image__one sisu-tilt" data-tilt-options='{ "glare": false, "maxGlare": 0, "maxTilt": 5, "speed": 700, "scale": 1 }'>
-						<img src="/katale/26-08-2015-12-54-03__MG_9650.jpg" alt="sisu"/>
+						<img src="/SISU%20Kampala/SISU-Kampala22.jpeg" alt="sisu"/>
 					</div>
 					<div class="about-one__image__border wow fadeInUp" data-wow-delay="200ms">
 						<img src="assets/images/shapes/about-1-border.jpg" alt="sisu"/>
@@ -763,7 +910,7 @@ body {
 }
 </style>
 
-<section class="testimonial-one">
+<section class="testimonial-one" id="about-mission">
 	<div class="testimonial-one__pen sisu-splax" data-para-options='{
 		"orientation": "left",
 		"scale": 2.5,
@@ -787,7 +934,7 @@ body {
 			<div class="sec-title text-center">
 	
 	
-	<h3 class="sec-title__title">Motto, Vision, Mission<br> and Core Values</h3><!-- /.sec-title__title -->
+	<h3 class="sec-title__title">Mission, Vision<br> and Core Values</h3><!-- /.sec-title__title -->
 </div><!-- /.sec-title -->
 			<div class="testimonial-one__carousel sisu-owl__carousel owl-carousel owl-theme"
 				data-owl-options='{
@@ -800,18 +947,6 @@ body {
 				"dots": false,
 				"autoplay": false
 				}'>
-				<div class="item">
-					<div class="testimonial-one__item">
-						<div class="testimonial-one__item__quote" style="font-family: 'Schoolbell', cursive;">
-							<strong>MOTTO:</strong> "How do they do it?"
-						</div>
-						<div class="testimonial-one__item__author">
-							<img src="/scoobydoo-logo.png" alt="sisu"/>
-							<h5 class="testimonial-one__item__author__name">SISU</h5>
-							<p class="testimonial-one__item__author__designation">Katale</p>
-						</div>
-					</div>
-				</div>
 				<div class="item">
 					<div class="testimonial-one__item">
 						<div class="testimonial-one__item__quote" style="font-family: 'Schoolbell', cursive;">
@@ -887,7 +1022,7 @@ body {
 			<div class="col-lg-5 d-flex align-items-center">
 				<div class="video-one__content">
 					<h3 class="video-one__content__title" style="color: #072F5F;">Let’s discover the campus through a video tour</h3>
-					<a href="#" class="sisu-btn" style="font-family: 'Ubuntu', sans-serif;">
+					<a href="/SISU%20VIRTUAL%20TOUR.mp4" class="sisu-btn video-popup" style="font-family: 'Ubuntu', sans-serif;">
 						<span>Visit Now</span>
 					</a>
 				</div>
@@ -895,8 +1030,8 @@ body {
 			<div class="col-lg-7">
 				<div class="video-one__btn-shape">
 					<div class="video-one__btn">
-						<img src="/katale/26-08-2015-12-49-54__MG_8635.jpg" alt="sisu"/>
-						<a href="https://www.youtube.com/watch?v=0MuL8fd3pb8" class="video-popup">
+						<img src="/SISU%20Kampala/SISU-Kampala23.jpeg" alt="sisu"/>
+						<a href="/SISU%20VIRTUAL%20TOUR.mp4" class="video-popup">
 							<i class="fa fa-play"></i>
 						</a>
 					</div>
@@ -905,7 +1040,7 @@ body {
 		</div>
 	</div>
 </section>
-<section class="program-one">
+<section class="program-one" id="programs">
 	<div class="program-one__bg sisu-splax" data-para-options='{
 		"orientation": "up",
 		"scale": 2.5,
@@ -933,7 +1068,7 @@ body {
     </div>
     <div class="program-one__item__bg"></div>
     <div class="program-one__item__image">
-        <img src="/Kampala/Preschool.jpeg" alt="Preschool">
+        <img src="/SISU%20Kampala/SISU-Kampala24.jpeg" alt="Preschool">
     </div><!-- /.program-one__item__image -->
     <div class="program-one__item__content">
         <h3 class="program-one__item__title"><a href="programs-d-preschool.html">Preschool</a></h3><!-- /.program-one__item__title -->
@@ -955,7 +1090,7 @@ body {
     </div>
     <div class="program-one__item__bg"></div>
     <div class="program-one__item__image">
-        <img src="/Kampala/Kindergarten.jpeg" alt="Kindergarten">
+        <img src="/SISU%20Kampala/SISU-Kampala25.jpeg" alt="Kindergarten">
     </div><!-- /.program-one__item__image -->
     <div class="program-one__item__content">
         <h3 class="program-one__item__title"><a href="programs-d-kindergarten.html">Kindergarten</a></h3><!-- /.program-one__item__title -->
@@ -977,7 +1112,7 @@ body {
     </div>
     <div class="program-one__item__bg"></div>
     <div class="program-one__item__image">
-        <img src="/Kampala/Toddlers.jpeg" alt="Toddler">
+        <img src="/SISU%20Kampala/SISU-Kampala26.jpeg" alt="Toddler">
     </div><!-- /.program-one__item__image -->
     <div class="program-one__item__content">
         <h3 class="program-one__item__title"><a href="programs-d-toddler.html">Toddlers</a></h3><!-- /.program-one__item__title -->
@@ -990,7 +1125,7 @@ body {
 		</div>
 	</div>
 </section>
-<section class="team-one">
+<section class="team-one" id="about-bog">
 	<div class="team-one__bg sisu-splax" data-para-options='{
 		"orientation": "up",
 		"scale": 1.5,
@@ -1004,7 +1139,7 @@ body {
 	<div class="container">
 		<div class="sec-title text-center">
 	
-	<h6 class="sec-title__tagline">Our Teachers</h6><!-- /.sec-title__tagline -->
+	<h6 class="sec-title__tagline">School Management Committee</h6><!-- /.sec-title__tagline -->
 	
 	<h3 class="sec-title__title">Meet our expert & smart<br> superheroes!</h3><!-- /.sec-title__title -->
 </div><!-- /.sec-title -->
@@ -1216,7 +1351,7 @@ body {
         </div>
     </div><!-- /.container -->
 </section><!-- /.mail-one -->
-<section class="blog-three">
+<section class="blog-three" id="news">
 	<div class="blog-three__shape-right sisu-splax" data-para-options='{
 		"orientation": "right",
 		"scale": 3.5,
@@ -1266,12 +1401,12 @@ body {
 				<div class="blog-card-three wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='00ms' style='--accent-color: #F25334;'>
     <div class="blog-card-three__bg"></div>
     <div class="blog-card-three__image">
-        <img src="/katale/26-08-2015-01-01-46_IMG_1441.jpg" alt="Play-Based Learning: Nurturing Creative Minds in Uganda's Early Years">
+        <img src="/SISU%20Kampala/SISU-Kampala27.jpeg" alt="Play-Based Learning: Nurturing Creative Minds in Uganda's Early Years">
         <div class="blog-card-three__image__layer-wrapper">
-            <div class="blog-card-three__image__layer" style="background-image: url('/katale/26-08-2015-01-12-29_IMG_3773.jpg');"></div>
-            <div class="blog-card-three__image__layer" style="background-image: url('/katale/26-08-2015-01-12-29_IMG_3773.jpg');"></div>
-            <div class="blog-card-three__image__layer" style="background-image: url('/katale/26-08-2015-01-12-29_IMG_3773.jpg');"></div>
-            <div class="blog-card-three__image__layer" style="background-image: url('/katale/26-08-2015-01-12-29_IMG_3773.jpg');"></div>
+            <div class="blog-card-three__image__layer" style="background-image: url('/SISU%20Kampala/SISU-Kampala27.jpeg');"></div>
+            <div class="blog-card-three__image__layer" style="background-image: url('/SISU%20Kampala/SISU-Kampala27.jpeg');"></div>
+            <div class="blog-card-three__image__layer" style="background-image: url('/SISU%20Kampala/SISU-Kampala27.jpeg');"></div>
+            <div class="blog-card-three__image__layer" style="background-image: url('/SISU%20Kampala/SISU-Kampala27.jpeg');"></div>
         </div>
         <a href="blog-details-left.html" class="blog-card-three__image__link"><span class="sr-only">Play-Based Learning: Nurturing Creative Minds in Uganda's Early Years</span><!-- /.sr-only --></a>
     </div><!-- /.blog-card-three__image -->
@@ -1299,12 +1434,12 @@ body {
 				<div class="blog-card-three wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms' style='--accent-color: #2390FF;'>
     <div class="blog-card-three__bg"></div>
     <div class="blog-card-three__image">
-        <img src="/katale/26-08-2015-01-03-29_IMG_3691.jpg" alt="Understanding the National Early Childhood Development Policy Guidelines">
+        <img src="/SISU%20Kampala/SISU-Kampala31.jpeg" alt="Understanding the National Early Childhood Development Policy Guidelines">
         <div class="blog-card-three__image__layer-wrapper">
-            <div class="blog-card-three__image__layer" style="background-image: url('/katale/15-09-2015-12-03-57_DSCN1414.jpg');"></div>
-            <div class="blog-card-three__image__layer" style="background-image: url('/katale/15-09-2015-12-03-57_DSCN1414.jpg');"></div>
-            <div class="blog-card-three__image__layer" style="background-image: url('/katale/15-09-2015-12-03-57_DSCN1414.jpg');"></div>
-            <div class="blog-card-three__image__layer" style="background-image: url('/katale/15-09-2015-12-03-57_DSCN1414.jpg');"></div>
+            <div class="blog-card-three__image__layer" style="background-image: url('/SISU%20Kampala/SISU-Kampala31.jpeg');"></div>
+            <div class="blog-card-three__image__layer" style="background-image: url('/SISU%20Kampala/SISU-Kampala31.jpeg');"></div>
+            <div class="blog-card-three__image__layer" style="background-image: url('/SISU%20Kampala/SISU-Kampala31.jpeg');"></div>
+            <div class="blog-card-three__image__layer" style="background-image: url('/SISU%20Kampala/SISU-Kampala31.jpeg');"></div>
         </div>
     </div><!-- /.blog-card-three__image -->
     <div class="blog-card-three__content">
@@ -1331,12 +1466,12 @@ body {
 				<div class="blog-card-three wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='200ms' style='--accent-color: #75C137;'>
     <div class="blog-card-three__bg"></div>
     <div class="blog-card-three__image">
-        <img src="/katale/26-08-2015-12-49-54__MG_8635.jpg" alt="A Parent's Guide to Choosing the Right Daycare in Kampala">
+        <img src="/SISU%20Kampala/SISU-Kampala28.jpeg" alt="A Parent's Guide to Choosing the Right Daycare in Kampala">
         <div class="blog-card-three__image__layer-wrapper">
-            <div class="blog-card-three__image__layer" style="background-image: url('/katale/26-08-2015-12-55-02_1.jpg');"></div>
-            <div class="blog-card-three__image__layer" style="background-image: url('/katale/26-08-2015-12-55-02_1.jpg');"></div>
-            <div class="blog-card-three__image__layer" style="background-image: url('/katale/26-08-2015-12-55-02_1.jpg');"></div>
-            <div class="blog-card-three__image__layer" style="background-image: url('/katale/26-08-2015-12-55-02_1.jpg');"></div>
+            <div class="blog-card-three__image__layer" style="background-image: url('/SISU%20Kampala/SISU-Kampala28.jpeg');"></div>
+            <div class="blog-card-three__image__layer" style="background-image: url('/SISU%20Kampala/SISU-Kampala28.jpeg');"></div>
+            <div class="blog-card-three__image__layer" style="background-image: url('/SISU%20Kampala/SISU-Kampala28.jpeg');"></div>
+            <div class="blog-card-three__image__layer" style="background-image: url('/SISU%20Kampala/SISU-Kampala28.jpeg');"></div>
         </div>
         <a href="blog-details-left.html" class="blog-card-three__image__link"><span class="sr-only">A Parent's Guide to Choosing the Right Daycare in Kampala</span><!-- /.sr-only --></a>
     </div><!-- /.blog-card-three__image -->
@@ -1363,7 +1498,7 @@ body {
 		</div><!-- /.row -->
 	</div><!-- /.container -->
 </section><!-- /.blog-three -->
-<footer class="main-footer">
+<footer class="main-footer" id="contact">
 	<div class="main-footer__bg"></div>
 	<!-- /.main-footer__bg -->
 	<img src="assets/images/shapes/footer-s-1-1.png" class="main-footer__shape-1" alt="sisu">
@@ -1463,33 +1598,33 @@ body {
 						<h2 class="footer-widget__title">Gallery</h2><!-- /.footer-widget__title -->
 						<ul class="list-unstyled footer-widget__gallery">
 							<li>
-								<a class="img-popup" href="/katale/26-08-2015-01-01-46_IMG_1441.jpg">
-									<img src="/katale/26-08-2015-01-01-46_IMG_1441.jpg" alt="footer gallery">
+								<a class="img-popup" href="/SISU%20Kampala/SISU-Kampala32.jpeg">
+									<img src="/SISU%20Kampala/SISU-Kampala32.jpeg" alt="footer gallery">
 								</a>
 							</li>
 							<li>
-								<a class="img-popup" href="/katale/26-08-2015-01-03-29_IMG_3691.jpg">
-									<img src="/katale/26-08-2015-01-03-29_IMG_3691.jpg" alt="footer gallery">
+								<a class="img-popup" href="/SISU%20Kampala/SISU-Kampala29.jpeg">
+									<img src="/SISU%20Kampala/SISU-Kampala29.jpeg" alt="footer gallery">
 								</a>
 							</li>
 							<li>
-								<a class="img-popup" href="/katale/26-08-2015-12-49-54__MG_8635.jpg">
-									<img src="/katale/26-08-2015-12-49-54__MG_8635.jpg" alt="footer gallery">
+								<a class="img-popup" href="/SISU%20Kampala/SISU-Kampala34.jpeg">
+									<img src="/SISU%20Kampala/SISU-Kampala34.jpeg" alt="footer gallery">
 								</a>
 							</li>
 							<li>
-								<a class="img-popup" href="/katale/26-08-2015-12-53-17__MG_8683.jpg">
-									<img src="/katale/26-08-2015-12-53-17__MG_8683.jpg" alt="footer gallery">
+								<a class="img-popup" href="/SISU%20Kampala/SISU-Kampala30.jpeg">
+									<img src="/SISU%20Kampala/SISU-Kampala30.jpeg" alt="footer gallery">
 								</a>
 							</li>
 							<li>
-								<a class="img-popup" href="/katale/26-08-2015-12-54-03__MG_9650.jpg">
-									<img src="/katale/26-08-2015-12-54-03__MG_9650.jpg" alt="footer gallery">
+								<a class="img-popup" href="/SISU%20Kampala/SISU-Kampala33.jpeg">
+									<img src="/SISU%20Kampala/SISU-Kampala33.jpeg" alt="footer gallery">
 								</a>
 							</li>
 							<li>
-								<a class="img-popup" href="/katale/26-08-2015-12-49-54__MG_8635.jpg">
-									<img src="/katale/26-08-2015-12-49-54__MG_8635.jpg" alt="footer gallery">
+								<a class="img-popup" href="/SISU%20Kampala/SISU-Kampala35.jpeg">
+									<img src="/SISU%20Kampala/SISU-Kampala35.jpeg" alt="footer gallery">
 								</a>
 							</li>
 						</ul><!-- /.list-unstyled footer-widget__gallery -->
@@ -1582,6 +1717,48 @@ body {
 	<!-- /.search-popup__content -->
 </div>
 <!-- /.search-popup -->
+
+<!-- Floating WhatsApp Button Start -->
+<style>
+.whatsapp-float {
+  position: fixed;
+  right: 30px;
+  bottom: 100px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  animation: whatsapp-pulse 2.5s infinite;
+}
+.whatsapp-float:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 22px rgba(37, 211, 102, 0.55);
+}
+.whatsapp-float i {
+  font-size: 34px;
+  line-height: 1;
+  color: #ffffff;
+}
+@keyframes whatsapp-pulse {
+  0% { box-shadow: 0 6px 18px rgba(0,0,0,0.25), 0 0 0 0 rgba(37,211,102,0.5); }
+  70% { box-shadow: 0 6px 18px rgba(0,0,0,0.25), 0 0 0 14px rgba(37,211,102,0); }
+  100% { box-shadow: 0 6px 18px rgba(0,0,0,0.25), 0 0 0 0 rgba(37,211,102,0); }
+}
+@media (max-width: 575px) {
+  .whatsapp-float { right: 18px; bottom: 90px; width: 50px; height: 50px; }
+  .whatsapp-float i { font-size: 30px; }
+}
+</style>
+<a href="https://wa.me/256708800006" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp" title="Chat with us on WhatsApp">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+</a>
+<!-- Floating WhatsApp Button End -->
 
 <a href="#" class="scroll-top">
     <svg class="scroll-top__circle" width="100%" height="100%" viewBox="-1 -1 102 102">
