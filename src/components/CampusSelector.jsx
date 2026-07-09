@@ -51,7 +51,7 @@ const CampusSelector = () => {
           <img
             src="/scoobydoo-logo.png"
             alt="Scoobydoo International School Uganda"
-            className="h-20 w-20 object-contain"
+            className="h-40 w-40 object-contain"
           />
           <h2 id="campus-selector-title" className="text-white text-lg font-bold text-center leading-snug">
             Scoobydoo International School Uganda
