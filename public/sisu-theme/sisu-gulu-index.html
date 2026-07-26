@@ -1890,8 +1890,12 @@ body {
     </div>
     <form id="applyNowForm" onsubmit="return submitApplyForm(event)">
       <div>
-        <label for="applyName">Full Name</label>
-        <input type="text" id="applyName" name="name" placeholder="Your full name" required>
+        <label for="applyLearnerName">Learner's Full Name</label>
+        <input type="text" id="applyLearnerName" name="learnerName" placeholder="Learner's full name" required>
+      </div>
+      <div>
+        <label for="applyName">Guardian's / Sponsor's Full Name</label>
+        <input type="text" id="applyName" name="name" placeholder="Guardian's / Sponsor's full name" required>
       </div>
       <div>
         <label for="applyPhone">Phone Number</label>
@@ -1912,8 +1916,8 @@ body {
       </div>
       <div>
         <label for="applyDocuments">Academic Documents</label>
-        <input type="file" id="applyDocuments" name="documents" accept=".pdf,.doc,.docx,.jpg,.png">
-        <p class="apply-now-modal__hint">Latest results slip (PDF or image, max 4 MB)</p>
+        <input type="file" id="applyDocuments" name="documents" accept=".pdf,.doc,.docx,.jpg,.png" onchange="return checkAttachmentSize(this);">
+        <p class="apply-now-modal__hint">Latest results slip (PDF or image, max 50KB)</p>
       </div>
       <div class="apply-now-modal__actions">
         <button type="submit" class="apply-now-modal__submit">Submit Application</button>
@@ -1933,11 +1937,22 @@ function closeApplyModal() {
   document.getElementById('applyNowOverlay').classList.remove('is-open');
   document.body.style.overflow = '';
 }
+var MAX_ATTACHMENT_BYTES = 50 * 1024; // 50KB email attachment limit
+function checkAttachmentSize(input) {
+  var file = input.files && input.files[0];
+  if (file && file.size > MAX_ATTACHMENT_BYTES) {
+    alert('That file is too large to email. Please attach a document smaller than 50KB.');
+    input.value = '';
+    return false;
+  }
+  return true;
+}
 function submitApplyForm(e) {
   e.preventDefault();
   var f = e.target;
-  var name = f.name.value, phone = f.phone.value, email = f.email.value, program = f.program.value;
-  alert('Application received!\n\nName: ' + name + '\nPhone: ' + phone + '\nEmail: ' + email + '\nProgram: ' + program + '\n\nWe will contact you within 2 working days.');
+  if (!checkAttachmentSize(f.documents)) { return false; }
+  var learnerName = f.learnerName.value, name = f.name.value, phone = f.phone.value, email = f.email.value, program = f.program.value;
+  alert('Application received!\n\nLearner\'s Name: ' + learnerName + '\nGuardian\'s/Sponsor\'s Name: ' + name + '\nPhone: ' + phone + '\nEmail: ' + email + '\nProgram: ' + program + '\n\nWe will contact you within 2 working days.');
   f.reset();
   closeApplyModal();
   return false;
