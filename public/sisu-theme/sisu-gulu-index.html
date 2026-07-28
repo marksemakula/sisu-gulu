@@ -1876,8 +1876,20 @@ body {
 }
 .apply-now-modal__submit { background: var(--sisu-base, #F25334); color: #fff; }
 .apply-now-modal__submit:hover { opacity: 0.9; }
+.apply-now-modal__submit:disabled { opacity: 0.5; cursor: not-allowed; }
 .apply-now-modal__cancel { background: #fff; border: 1px solid #ddd; color: #444; }
 .apply-now-modal__cancel:hover { background: #f5f5f5; }
+.apply-now-modal__feedback {
+  display: none;
+  font-size: 13px;
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+.apply-now-modal__feedback.is-visible { display: block; }
+.apply-now-modal__feedback--success { background: #EAFBF0; border: 1px solid #B7EFCB; color: #1E7B45; }
+.apply-now-modal__feedback--error { background: #FFF6E5; border: 1px solid #FBE3A8; color: #8A5A00; }
 </style>
 <div class="apply-now-modal-overlay" id="applyNowOverlay" onclick="if(event.target===this){closeApplyModal();}">
   <div class="apply-now-modal">
@@ -1888,6 +1900,7 @@ body {
       </div>
       <button type="button" class="apply-now-modal__close" onclick="closeApplyModal()" aria-label="Close">&times;</button>
     </div>
+    <div id="applyNowFeedback" class="apply-now-modal__feedback"></div>
     <form id="applyNowForm" onsubmit="return submitApplyForm(event)">
       <div>
         <label for="applyLearnerName">Learner's Full Name</label>
@@ -1936,6 +1949,7 @@ function openApplyModal(e) {
 function closeApplyModal() {
   document.getElementById('applyNowOverlay').classList.remove('is-open');
   document.body.style.overflow = '';
+  hideApplyFeedback();
 }
 var MAX_ATTACHMENT_BYTES = 50 * 1024; // 50KB email attachment limit
 function checkAttachmentSize(input) {
@@ -1947,14 +1961,69 @@ function checkAttachmentSize(input) {
   }
   return true;
 }
+function fileToBase64(file) {
+  return new Promise(function (resolve, reject) {
+    var reader = new FileReader();
+    reader.onload = function () { resolve(reader.result); };
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+function showApplyFeedback(kind, message) {
+  var el = document.getElementById('applyNowFeedback');
+  el.className = 'apply-now-modal__feedback is-visible apply-now-modal__feedback--' + kind;
+  el.textContent = message;
+}
+function hideApplyFeedback() {
+  var el = document.getElementById('applyNowFeedback');
+  el.className = 'apply-now-modal__feedback';
+  el.textContent = '';
+}
 function submitApplyForm(e) {
   e.preventDefault();
   var f = e.target;
   if (!checkAttachmentSize(f.documents)) { return false; }
+
   var learnerName = f.learnerName.value, name = f.name.value, phone = f.phone.value, email = f.email.value, program = f.program.value;
-  alert('Application received!\n\nLearner\'s Name: ' + learnerName + '\nGuardian\'s/Sponsor\'s Name: ' + name + '\nPhone: ' + phone + '\nEmail: ' + email + '\nProgram: ' + program + '\n\nWe will contact you within 2 working days.');
-  f.reset();
-  closeApplyModal();
+  var submitBtn = f.querySelector('.apply-now-modal__submit');
+  hideApplyFeedback();
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Submitting…';
+
+  var payload = { campus: 'Gulu', learnerName: learnerName, name: name, phone: phone, email: email, program: program };
+  var file = f.documents.files && f.documents.files[0];
+
+  (file ? fileToBase64(file) : Promise.resolve(null)).then(function (dataUrl) {
+    if (dataUrl) {
+      payload.documentName = file.name;
+      payload.documentData = dataUrl;
+    }
+    return fetch('/api/submit-application', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+  }).then(function (response) {
+    return response.json().then(function (result) {
+      if (!result.success) { throw new Error(result.error || 'Submission failed'); }
+      showApplyFeedback('success', 'Application received! We will contact you within 2 working days.');
+      f.reset();
+      setTimeout(closeApplyModal, 2500);
+    });
+  }).catch(function (error) {
+    console.error('Application submission error:', error);
+    // The online form can fail independently of the applicant (e.g. a
+    // temporary issue with the backend) - fall back to a pre-filled email
+    // so the application is never lost.
+    var mailBody = "Learner's Name: " + learnerName + "\nGuardian's/Sponsor's Name: " + name + "\nPhone: " + phone + "\nEmail: " + email + "\nProgram: " + program;
+    var mailtoLink = 'mailto:coordinator@scoobydoointernational.ac.ug,info@ges.ac.ug?subject=' + encodeURIComponent('Apply Now Submission - ' + learnerName) + '&body=' + encodeURIComponent(mailBody);
+    window.location.href = mailtoLink;
+    showApplyFeedback('error', "Our online form is having trouble right now. We've opened an email with your details pre-filled — please hit send so your application isn't lost.");
+  }).finally(function () {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Submit Application';
+  });
+
   return false;
 }
 document.addEventListener('keydown', function (e) {
